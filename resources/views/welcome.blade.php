@@ -48,7 +48,8 @@
                 font-size: 84px;
             }
 
-            .slogan > p {
+            .slogan > p,
+            .links > a {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;

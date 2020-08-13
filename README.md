@@ -2,7 +2,7 @@
 
 A Library inventory management app.
 
-## Getting Started
+## Getting Started (work in progress)
 
 -   Copy the `.env.example` file and rename it as `.env` and setup database.
 -   On your terminal, run `php artisan serve` and access `localhost:8000` to
@@ -11,12 +11,28 @@ A Library inventory management app.
 
         php artisan serve --port=3000
 
--   run `composer install` to register an APP_KEY
+-   run `composer install` to register an APP_KEY and install the dependencies
+-   run `npm install && npm run dev` for the UI
+-   run `php artisan migrate` to initialize the database
+
+## Content
+
+-   [TODO](#todo)
+-   [User Story](#user-story)
+    -   [Users](#users)
+        -   [Book](#book)
+        -   [Librarian](#librarian)
+        -   [User](#user)
+        -   [Guest](#guest)
+        -   [System](#system)
+        -   [Tentative Features](#tentative-features)
 
 ## TODO
 
--   [ ] setup app
--   [ ] add user and auth
+**Session 1**
+
+-   [x] setup app
+-   [x] add user and auth
 -   [ ] user (admin) can add a category
 -   [ ] user (admin) can edit a category
 -   [ ] user (admin) can remove a category
@@ -69,12 +85,12 @@ A Library inventory management app.
 
 -   can can register to add books to a request form
 
-#### System
+#### _System_
 
 -   request form tracking
 -   inventory tracking
 
-#### Tentative Features
+#### _Tentative Features_
 
 -   book reservation
 -   notifications when books become available
