@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-12 py-3">
             @foreach($categories as $category)
-                <h2>{{ $category->name }}</h2>
+                <h2>{{ ucwords($category->name) }}</h2>
             @endforeach
         </div>
     </div>
