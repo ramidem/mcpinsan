@@ -13,7 +13,11 @@
     <div class="row">
         <div class="col-12 py-3">
             @foreach($categories as $category)
-                <h2>{{ ucwords($category->name) }}</h2>
+                <h2>
+                    <a href="{{ route('categories.show', $category->id) }}">
+                    {{ ucwords($category->name) }}
+                    </a>
+                </h2>
             @endforeach
         </div>
     </div>
