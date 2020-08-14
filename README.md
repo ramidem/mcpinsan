@@ -32,21 +32,24 @@ A Library inventory management app.
 **Session 1**
 
 -   [x] setup app
--   [x] add user and auth
--   [ ] user (admin) can add a category
--   [ ] user (admin) can edit a category
--   [ ] user (admin) can remove a category
--   [ ] user (admin) can add a book
--   [ ] user (admin) can edit a book
--   [ ] user (admin) can remove a book
+-   [x] add users and auth
+-   [ ] user (root) can add a category
+-   [ ] user (root) can edit a category
+-   [ ] user (root) can remove a category
+-   [ ] user (root) can add a book
+-   [ ] user (root) can edit a book
+-   [ ] user (root) can remove a book
 
 ## User Story
 
 ### Users
 
--   Admin?
+-   Root
+    -   Full Control
 -   Librarian
+    -   Half Control
 -   User
+    -   Limited Control
 
 #### Book
 
