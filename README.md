@@ -35,7 +35,7 @@ A Library inventory management app.
 -   [x] add users and auth
 -   [x] user (root) can add a category
 -   [x] user (root) can view a category
--   [ ] user (root) can edit a category
+-   [x] user (root) can edit a category
 -   [ ] user (root) can remove a category
 -   [ ] user (root) can add a book
 -   [ ] user (root) can edit a book
