@@ -64,8 +64,8 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $validatedData = $request->validate([
-                'name' =>'required|unique:categories,name'
-            ]);
+            'name' =>'required|unique:categories,name'
+        ]);
 
         $category->update($validatedData);
         $category->save();
@@ -79,6 +79,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect(route('categories.index'))
+            ->with('message',"Category {$category->name} has been deleted")
+            ->with('alert','warning');
     }
 }
