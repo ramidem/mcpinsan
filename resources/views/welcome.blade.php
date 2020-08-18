@@ -37,22 +37,21 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        @if (Request::is('/'))
         <style>
-            img.bg-img {
-                min-height: 100%;
-                min-width: 1024px;
+img.bg-img {
+    min-height: 100%;
+    min-width: 1024px;
 
-                /* proportionate scaling */
-                width: 100%;
-                height: auto;
+    /* proportionate scaling */
+    width: 100%;
+    height: auto;
 
-                /* positioning */
-                position: fixed;
-                top: 0;
-                left: 0;
-                z-index: -3;
-            }
+    /* positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
 
             .md-navlinks li.logo {
                 background: url(../images/mcp-logo-white.svg) center no-repeat;
@@ -122,7 +121,6 @@
                 }
             }
         </style>
-        @endif
     </head>
 
     <body>
@@ -130,86 +128,45 @@
         <img src="/images/cafebg2x.png" alt="cafe" class="bg-img">
 
         <div class="wrapper">
-            <!-- MD Nav -->
-            <div class="container pt-3">
-                <!-- <div class="container d-none d-md-block pt-3"> -->
-                <div class="row navlinks-container">
-                    <ul class="md-navlinks">
-                        <li class="navlink d-none d-md-block"><a href="/about">About</a></li>
-                        <li class="navlink d-none d-md-block"><a href="/menu">Menu</a></li>
-                        <li class="navlink logo"><a href="/">McPinsan</a></li>
-                        <li class="navlink d-none d-md-block"><a href="/workspaces">Workspaces</a></li>
-                        <li class="navlink d-none d-md-block"><a href="/contact">Contact</a></li>
-                    </ul>
-                </div>
-                <!-- MD Nav -->
-
-                <!-- SM Nav -->
-                <nav class="navbar d-md-none">
-                    <div id="hamburger" class="overlay">
-
-                        <!-- Button to close the overlay navigation -->
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
-                            <i class="fas fa-chevron-left"></i>
-                        </a>
-
-                        <!-- Overlay content -->
-                        <div class="overlay-content">
-                            <a href="/about">About</a>
-                            <a href="/menu">Menu</a>
-                            <a href="/workspaces">Workspaces</a>
-                            <a href="/contact">Contact</a>
-                        </div>
-
+            @include('_partials._navs')
+            <!-- Start Content -->
+            <div class="container full-cta pt-5 mt-5">
+                <div class="row d-md-flex align-items-center pt-md-0 mt-5">
+                    <div class="mcp-heading col-12 p-5 p-md-0 mb-5 mb-md-0 col-md-6">
+                        <img src="/images/mcpinsan-header.svg" alt="McPinsan Cafe & Workspaces"
+                                                               class="img-fluid">
+                        <span>
+                            <h1>McPinsan</h1>
+                            <h2>Cafe & Workspaces</h2>
+                        </span>
                     </div>
 
-                    <!-- Use any element to open/show the overlay navigation menu -->
-                    <span class="open-menu" onclick="openNav()">
-                        <i class="fas fa-chevron-right"></i>
-                    </span>
-                </nav>
-                <!-- SM Nav -->
-
-                <!-- Start Content -->
-                <div class="container full-cta pt-5 mt-5">
-                    <div class="row d-md-flex align-items-center pt-md-0 mt-5">
-                        <div class="mcp-heading col-12 p-5 p-md-0 mb-5 mb-md-0 col-md-6">
-                            <img src="/images/mcpinsan-header.svg" alt="McPinsan Cafe & Workspaces"
-                                                                   class="img-fluid">
-                            <span>
-                                <h1>McPinsan</h1>
-                                <h2>Cafe & Workspaces</h2>
-                            </span>
-                        </div>
-
-                        <div class="col-12 col-md-6 text-white text-center pl-md-5">
-                            <h3 class="px-3 mb-3">We pride ourselves in supporting locally sourced products.</h3>
-                            <h3 class="px-3 mb-3">Our brewed coffee comes from the finest 100% arabica beans of Jolo, Sulu.</h3>
-                        </div>
-
+                    <div class="col-12 col-md-6 text-white text-center pl-md-5">
+                        <h3 class="px-3 mb-3">We pride ourselves in supporting locally sourced products.</h3>
+                        <h3 class="px-3 mb-3">Our brewed coffee comes from the finest 100% arabica beans of Jolo, Sulu.</h3>
                     </div>
-                    <div class="row">
-                        <div class="col-12 text-white text-center my-5 pt-md-5 mx-auto">
-                            <div class="col-12 col-md-9 mx-auto text-left">
-                                <p class="px-3 mb-5">Book a room for up to 20 people for meetings or a single-person room if you value personal space.</p>
-                            </div>
-                            <a href="/workspaces" class="mb-3 mb-md-0 col-8 col-md-3 btn btn-light">Workspaces</a>
-                            <a href="/register" class="mb-3 mb-md-0 ml-md-3 col-8 col-md-5 btn btn-dark">Become a Member</a>
+
+                </div>
+                <div class="row">
+                    <div class="col-12 text-white text-center my-5 pt-md-5 mx-auto">
+                        <div class="col-12 col-md-9 mx-auto text-left">
+                            <p class="px-3 mb-5">Book a room for up to 20 people for meetings or a single-person room if you value personal space.</p>
                         </div>
+                        <a href="/workspaces" class="mb-3 mb-md-0 col-8 col-md-3 btn btn-light">Workspaces</a>
+                        <a href="/register" class="mb-3 mb-md-0 ml-md-3 col-8 col-md-5 btn btn-dark">Become a Member</a>
                     </div>
-                </div>
-                <!-- End Content -->
-                </div>
-                <!-- Footer -->
-                <div class="footer">
-                    <span>
-                        &copy; 2020 &mdash; <a href="http://ramidem.me" target="_blank" rel="noopener noreferrer">Med
-                            Aduh</a>
-                    </span>
                 </div>
             </div>
+            <!-- End Content -->
+        <!-- Footer -->
+        <div class="footer">
+            <span>
+                &copy; 2020 &mdash; <a href="http://ramidem.me" target="_blank" rel="noopener noreferrer">Med
+                    Aduh</a>
+            </span>
         </div>
         <!-- Footer -->
+        </div>
 
         <!-- Mobile Navigation -->
         <script src="/js/menuOverlay.js"></script>
