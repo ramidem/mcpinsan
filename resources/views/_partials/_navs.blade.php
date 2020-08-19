@@ -7,7 +7,7 @@
                 class="navlink d-none d-md-block">
                 <a
                     class="{{ Request::is('about') ? 'active-link' : '' }}"
-                    href="/about">
+                    href="{{ route('about') }}">
                     About
                 </a>
             </li>
@@ -15,16 +15,21 @@
                 class="navlink d-none d-md-block">
                 <a
                     class="{{ Request::is('menu') ? 'active-link' : '' }}"
-                    href="/menu">
+                    href="{{ route('menu') }}">
                     Menu
                 </a>
             </li>
-            <li class="navlink logo"><a href="/">McPinsan</a></li>
+            <li class="navlink logo">
+                <a href="{{ route('welcome') }}">
+                    {{-- route to auth user's account if logged in--}}
+                    McPinsan
+                </a>
+            </li>
             <li
                 class="navlink d-none d-md-block">
                 <a
                     class="{{ Request::is('workspaces') ? 'active-link' : '' }}"
-                    href="/workspaces">
+                    href="{{ route('workspaces') }}">
                     Workspaces
                 </a>
             </li>
@@ -32,7 +37,7 @@
                 class="navlink d-none d-md-block">
                 <a
                     class="{{ Request::is('contact') ? 'active-link' : '' }}"
-                    href="/contact">
+                    href="{{ route('contact') }}">
                     Contact
                 </a>
             </li>

@@ -11251,6 +11251,16 @@ a:focus {
   box-shadow: 0px 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
 }
 
+/* dynamic */
+
+.dynamic {
+  background-color: white;
+  margin-bottom: -4rem;
+  box-shadow: 0px 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+/* footer banner */
+
 .pricing:hover {
   box-shadow: none;
   box-shadow: 0px 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
