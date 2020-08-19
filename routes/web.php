@@ -26,9 +26,11 @@ Route::get('/account', function () {
     return view('account.profile');
 });
 
+
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', function() {
     return redirect('/account');
 });
+
+Route::resource('/items', 'ItemController');
