@@ -41,12 +41,6 @@
 
                 <!-- Footer -->
                 @include('_partials._footer')
-                <div class="footer">
-                    <span>
-                        &copy; 2020 &mdash; <a href="http://ramidem.me" target="_blank" rel="noopener noreferrer">Med
-                            Aduh</a>
-                    </span>
-                </div>
             </div>
         </div>
 
