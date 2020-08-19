@@ -6,3 +6,710 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+/*
+ * MAIN CSS
+ * ============================================================================
+ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  height: 100%;
+  background-color: rgb(243, 243, 243);
+  color: #444;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.7em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* Highlight */
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #2c454f;
+}
+
+::selection {
+  color: white;
+  background: #2c454f;
+}
+
+/* Navigation Base Style */
+/*  */
+
+/* Remove annoying white outline on links */
+a:hover,
+a:active,
+a:focus {
+  outline: 0;
+}
+
+/* Nav Container */
+.md-navlinks {
+  height: 6rem;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Nav li */
+.md-navlinks li {
+  font-family: "Libre Baskerville", serif;
+  padding-top: 2rem;
+  min-width: 6.25rem; /* even spacing */
+}
+
+/* Remove padding top on logo a */
+.md-navlinks li:nth-child(3) {
+  padding-top: 0;
+}
+
+.md-navlinks li:last-child {
+  text-align: right;
+}
+
+/* Replace link with image */
+.md-navlinks li.logo {
+  background: url(../images/mcp-logo-dark.svg) center no-repeat;
+  display: block;
+  width: 6.25rem;
+  height: 5.625rem;
+  text-indent: -9999px;
+  border-top: none;
+}
+
+.md-navlinks li.logo:hover {
+  transition: all 1s;
+  opacity: 0.7;
+}
+
+.md-navlinks li.logo a {
+  display: block;
+  width: 6.25rem;
+  height: 5.625rem;
+  text-indent: -9999px;
+  border-top: 0.1875rem solid transparent;
+}
+
+.md-navlinks li.logo a:hover {
+  border-top: 0.1875rem solid transparent;
+}
+
+.md-navlinks li a {
+  color: #2c454f;
+  border-top: 0.1875rem solid transparent;
+  padding-top: 1.5rem;
+  text-transform: lowercase;
+}
+
+.md-navlinks li a:hover {
+  color: #456b7a;
+  border-top: 0.1875rem solid #456b7a;
+  text-decoration: none;
+  text-shadow: none;
+  transition: all 1.5s;
+}
+
+/* Active Link */
+.md-navlinks li a.active-link {
+  color: #456b7a;
+  border-top: 0.1875rem solid #456b7a;
+  text-shadow: none;
+}
+
+/* Mobile Nav Overlay */
+.open-menu {
+  color: #456b7a;
+  opacity: 0.7;
+  text-shadow: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.open-menu:hover {
+  color: #6c7e85;
+  opacity: 1;
+}
+
+/* Text Shadows */
+.md-navlinks li a {
+  text-shadow: 0 0.0626rem 0.125rem rgba(0, 0, 0, 0.5);
+}
+
+/* === */
+
+/* Buttons */
+.btn {
+  font-size: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 0;
+}
+.btn-light {
+  background-color: white;
+  border: none;
+}
+
+.btn-dark {
+  background-color: #2c454f;
+  border: none;
+}
+
+.btn-dark:hover {
+  background-color: #456b7a;
+}
+
+.btn-light:hover,
+.btn-dark:hover {
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+/* Makes the footer stick to bottom. */
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content {
+  padding-bottom: 2rem;
+}
+
+/* About */
+/* === */
+
+.about-fluid {
+  background-color: #456b7a;
+}
+
+.about-wrapper {
+  background-color: white;
+  box-shadow: 0px 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
+  margin-bottom: -5.8rem;
+}
+
+.spacer {
+  padding-bottom: 3rem;
+}
+
+.mcp-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mcp-about span {
+  display: none;
+  text-indent: -9999px;
+  font-family: "Libre Baskerville", serif;
+}
+
+.socials div {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-wrapper hr {
+  width: 50%;
+  margin-top: 3rem;
+}
+
+.about-wrapper h4 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.about-wrapper p {
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.socials .fab {
+  font-size: 2.5rem;
+  color: #2c454f;
+}
+
+.socials .fab:hover {
+  opacity: 0.8;
+  transition: all 1s;
+}
+
+.socials {
+  margin-bottom: 1rem;
+}
+
+/* Menu */
+/* ===  */
+
+.table-menu th {
+  font-size: 18px;
+}
+
+.table-menu span {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.table-menu td {
+  font-size: 32px;
+  font-weight: bolder;
+  text-align: right;
+  vertical-align: middle;
+  font-style: italic;
+  min-width: 115px;
+}
+
+.table-menu td span {
+  display: inline;
+  font-size: 18px;
+}
+
+.menu-tables h3 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.table-menu thead tr th {
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+.frappes-shakes tbody tr,
+.frappes-shakes tbody th,
+.frappes-shakes tbody td {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+.frappes-shakes tbody th {
+  font-weight: normal;
+}
+.frappes-shakes tbody tr td {
+  font-size: 18px;
+}
+
+.frappes-shakes thead tr th {
+  border-bottom: none;
+}
+
+/* Workspaces */
+.pricing {
+  text-align: center;
+  background-color: white;
+  padding: 5rem 3rem 3rem 3rem;
+  margin-bottom: -4rem;
+  box-shadow: 0px 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+/* dynamic */
+.dynamic {
+  background-color: white;
+  margin-bottom: -4rem;
+  box-shadow: 0px 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+/* footer banner */
+.footer-banner {
+}
+
+.pricing:hover {
+  box-shadow: none;
+  box-shadow: 0px 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.pricing h3 {
+  text-transform: uppercase;
+  color: #2c454f;
+}
+
+.pricing > p {
+  text-transform: lowercase;
+  font-style: italic;
+}
+
+.pricing .price {
+  font-size: 74px;
+  font-style: italic;
+  margin-top: 2rem;
+  margin-bottom: -10px;
+  color: #2c454f;
+}
+
+.pricing-left .price {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-size: 54px;
+}
+
+.pricing .price span {
+  font-size: 24px;
+  position: relative;
+  bottom: 15px;
+}
+
+.pricing hr {
+  width: 50%;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.pricing-left {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+}
+
+.pricing-left:hover {
+  box-shadow: none;
+}
+
+/* Pricing Icons */
+.list-unstyled {
+  text-align: left;
+  max-width: 265px;
+  margin: auto;
+}
+
+.list-unstyled li {
+  margin-top: 1rem;
+}
+
+.list-unstyled li:first-child {
+  margin-top: 0;
+}
+
+.list-unstyled .media img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Meeting Rooms */
+.meeting-rooms {
+  background-color: #2c454f;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.meeting-rooms .table {
+  color: whitesmoke;
+}
+
+.meeting-table tbody th {
+  border-top: 1px solid #456b7a;
+}
+
+.meeting-table tbody td {
+  border-top: 1px solid #456b7a;
+}
+
+.meeting-table tr th {
+  text-align: left;
+}
+
+.meeting-table tr td {
+  text-align: right;
+}
+
+.meeting-rooms hr {
+  width: 50%;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  border: 1px solid whitesmoke;
+}
+
+.inclusion {
+  text-align: left;
+}
+
+/* Full Width Gallery */
+.fullwidth-gallery {
+  max-width: 2752px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 33.3333%);
+}
+
+/* Amenities Media */
+.media img {
+  width: 4rem;
+  height: 4rem;
+}
+
+/* On Mobile only */
+#amenitiesAccordion .card {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+}
+
+#amenitiesAccordion .card-header {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  cursor: pointer;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#amenitiesAccordion .card-body {
+  padding: 1.5rem;
+  margin-top: -0.8rem;
+}
+
+.accordion-toggler .media {
+  display: flex;
+  align-items: center;
+}
+
+.accordion-toggler .media img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.accordion-toggler .media h5 {
+  margin-bottom: 0;
+}
+
+/* Contact */
+/* === */
+
+/* Inputs */
+.form-control {
+  border-radius: 0;
+}
+
+.form-control:focus {
+  border-color: #456b7a;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(69, 107, 122, 0.57);
+}
+
+.contact-details {
+  margin: 3rem 0;
+}
+
+.list-group-item {
+  font-size: 1.2rem;
+  font-style: italic;
+  background-color: transparent;
+  border: 0;
+  padding: 1rem 0 1rem 2.5rem;
+}
+
+.list-group-item .fas {
+  color: #444;
+  opacity: 0.8;
+  margin-right: 1rem;
+}
+
+/* Map */
+.mapouter {
+  position: relative;
+  text-align: right;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+}
+
+.mapouter,
+.gmap_canvas {
+  height: 20rem;
+  max-width: 37.5rem;
+}
+
+.gmap_canvas iframe {
+  height: 100%;
+  width: 100%;
+}
+
+/* Media Dropshadow */
+.media-border,
+.gmap_canvas {
+  border: 0.625rem solid white;
+  box-shadow: 0px 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  height: 2rem;
+  background-color: #2c454f;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.footer span {
+  font-size: 0.75rem;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.footer span a {
+  font-family: "Merriweather", serif;
+  color: white;
+  font-weight: bolder;
+  text-decoration: underline;
+  text-transform: none;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  /* Hide links except logo */
+  .md-navlinks {
+    max-width: 47.9375rem;
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  /* Map Stuff */
+  .mapouter {
+    max-height: 18.75rem;
+  }
+
+  .gmap_canvas {
+    max-height: 18.75rem;
+  }
+
+  /* Gallery */
+  .fullwidth-gallery {
+    display: none;
+  }
+
+  .about-wrapper {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-wrapper p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .list-group-item {
+    font-size: 1rem;
+    padding: 1rem 0 1rem 0.8rem;
+  }
+
+  .socials .fab {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 335px) {
+  .btn {
+    font-size: 1rem;
+  }
+
+  .socials .fab {
+    font-size: 1.5rem;
+  }
+}
+
+/*
+ * Menu Overlay Nav
+ * ============================================================================
+ */
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(44, 69, 79); /* Black fallback color */
+    background-color: rgba(44, 69, 79, 0.95); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 25%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 1.875rem; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 0.5rem;
+    text-decoration: none;
+    font-size: 2.25rem;
+    color: white;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+    font-family: "Libre Baskerville", serif;
+    text-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.5);
+}
+
+.overlay a .italic {
+    font-style: italic;
+    font-size: 1.5em;
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+    color: whitesmoke;
+    opacity: 0.7;
+    transition: all 0.5s;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+    font-size: 1.5rem;
+    color: white;
+    opacity: 0.7;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+/* Mobile Nav */
+.overlay .closebtn:hover {
+    text-shadow: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    cursor: pointer;
+}
