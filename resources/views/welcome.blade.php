@@ -158,14 +158,6 @@ img.bg-img {
                 </div>
             </div>
             <!-- End Content -->
-        <!-- Footer -->
-        <div class="footer">
-            <span>
-                &copy; 2020 &mdash; <a href="http://ramidem.me" target="_blank" rel="noopener noreferrer">Med
-                    Aduh</a>
-            </span>
-        </div>
-        <!-- Footer -->
         </div>
 
         <!-- Mobile Navigation -->
