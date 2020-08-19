@@ -3,10 +3,12 @@
         <div class="row">
             <div class="col-12 d-md-flex justify-content-md-between">
                 <!-- Sidebar-->
-                @include('_partials._sidebar_nav')
+                <div class="col-md-3 mb-3 mt-5">
+                    @include('_partials._sidebar_nav')
+                </div>
 
                 <!-- Main -->
-                <div class="col-12 col-md-8 dynamic py-3">
+                <div class="col-12 col-md-9 dynamic py-3">
                     {{ $slot }}
                 </div>
             </div>
