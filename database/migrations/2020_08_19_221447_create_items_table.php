@@ -15,7 +15,10 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->unique();
             $table->timestamps();
+            // asset_id
+            // status_id
         });
     }
 

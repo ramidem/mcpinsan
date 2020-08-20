@@ -11002,7 +11002,7 @@ a:focus {
 /* Replace link with image */
 
 .md-navlinks li.logo {
-  background: url(/images/mcp-logo-dark.svg?cd4bdd4367eda2e9120b9a62ebd96f28) center no-repeat;
+  background: url(/images/mcp-logo-dark.svg?c067f1e0f667a9ca5b869fa0c4660dff) center no-repeat;
   display: block;
   width: 6.25rem;
   height: 5.625rem;
@@ -11078,28 +11078,28 @@ a:focus {
 
 /* Buttons */
 
-.btn {
+.bttn {
   font-size: 1.5rem;
   padding: 0.75rem;
   border-radius: 0;
 }
 
-.btn-light {
+.bttn-light {
   background-color: white;
   border: none;
 }
 
-.btn-dark {
+.bttn-dark {
   background-color: #2c454f;
   border: none;
 }
 
-.btn-dark:hover {
+.bttn-dark:hover {
   background-color: #456b7a;
 }
 
-.btn-light:hover,
-.btn-dark:hover {
+.bttn-light:hover,
+.bttn-dark:hover {
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s;
 }
@@ -11258,8 +11258,6 @@ a:focus {
   margin-bottom: -4rem;
   box-shadow: 0px 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
 }
-
-/* footer banner */
 
 .pricing:hover {
   box-shadow: none;

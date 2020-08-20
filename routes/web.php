@@ -26,6 +26,12 @@ Route::get('/account', function () {
     return view('account.profile');
 });
 
+// @TODO
+// Default to inventory/assets
+Route::get('/inventory', function () {
+    return view('inventory.index');
+});
+
 
 Auth::routes();
 
@@ -33,4 +39,4 @@ Route::get('/home', function() {
     return redirect('/account');
 });
 
-Route::resource('/items', 'ItemController');
+Route::resource('inventory/items', 'ItemController');

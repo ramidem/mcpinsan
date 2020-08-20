@@ -8,41 +8,42 @@ use Illuminate\Http\Request;
 class ItemController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Display a listing items
      */
     public function index()
     {
-        return view('items.index');
+        return view('items.index')
+            ->with('items', Item::all());
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the form for creating a new item.
      */
     public function create()
     {
-        //
+        return view('items.create');
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created item in storage.
      */
     public function store(Request $request)
     {
-        //
+        // @TODO
+        // code generator
+        $validateData = $request->validate([
+            'code' => 'required|unique:items,name',
+        ]);
+
+        $item = new Item($validateData);
+        $item->save();
+
+        return redirect(route('items.index'))
+            ->with('message', "Added successfully!");
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
+     * Display the specified item.
      */
     public function show(Item $item)
     {
@@ -50,10 +51,7 @@ class ItemController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
+     * Show the form for editing the specified item.
      */
     public function edit(Item $item)
     {
@@ -61,11 +59,7 @@ class ItemController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
+     * Update the specified item in storage.
      */
     public function update(Request $request, Item $item)
     {
@@ -73,10 +67,7 @@ class ItemController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Item  $item
-     * @return \Illuminate\Http\Response
+     * Remove the specified item from storage.
      */
     public function destroy(Item $item)
     {

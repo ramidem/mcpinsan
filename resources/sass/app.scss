@@ -169,27 +169,27 @@ a:focus {
 /* === */
 
 /* Buttons */
-.btn {
+.bttn {
   font-size: 1.5rem;
   padding: 0.75rem;
   border-radius: 0;
 }
-.btn-light {
+.bttn-light {
   background-color: white;
   border: none;
 }
 
-.btn-dark {
+.bttn-dark {
   background-color: #2c454f;
   border: none;
 }
 
-.btn-dark:hover {
+.bttn-dark:hover {
   background-color: #456b7a;
 }
 
-.btn-light:hover,
-.btn-dark:hover {
+.bttn-light:hover,
+.bttn-dark:hover {
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s;
 }
@@ -341,10 +341,6 @@ a:focus {
   background-color: white;
   margin-bottom: -4rem;
   box-shadow: 0px 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
-}
-
-/* footer banner */
-.footer-banner {
 }
 
 .pricing:hover {

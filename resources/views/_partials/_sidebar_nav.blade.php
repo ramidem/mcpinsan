@@ -10,8 +10,8 @@
     </li>
     <li class="nav-item">
         <a
-            class="nav-link {{ Request::is('items') ? 'active' : '' }}"
-            href="/items">
+            class="nav-link {{ Request::is('inventory*') ? 'active' : '' }}"
+            href="/inventory">
             Inventory
         </a>
     </li>
