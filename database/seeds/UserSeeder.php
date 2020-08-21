@@ -9,24 +9,17 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'root',
-            'email' => 'root@unshelf.com',
+            'name' => 'admin',
+            'email' => 'admin@mcpinsan.com',
             'password' => Hash::make('11111111'),
             'role_id' => 1
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Mrs Librarian',
-            'email' => 'librarian@unshelf.com',
+            'name' => 'Naruto Uzumaki',
+            'email' => 'ninetails@mcpinsan.com',
             'password' => Hash::make('11111111'),
             'role_id' => 2
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Naruto Uzumaki',
-            'email' => 'ninetails@unshelf.com',
-            'password' => Hash::make('11111111'),
-            'role_id' => 3
         ]);
     }
 }

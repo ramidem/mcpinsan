@@ -12,10 +12,6 @@ class RoleSeeder extends Seeder
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'librarian'
-        ]);
-
-        DB::table('roles')->insert([
             'name' => 'user'
         ]);
     }
