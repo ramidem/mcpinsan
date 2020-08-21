@@ -20,7 +20,7 @@
                             <td>{{ $category->name }}</td>
                             <td>
                                 <a
-                                    href="">
+                                    href="{{ route('categories.show', $category->id) }}">
                                     View
                                 </a>
                                 <a

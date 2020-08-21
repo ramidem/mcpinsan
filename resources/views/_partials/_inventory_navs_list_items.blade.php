@@ -3,7 +3,7 @@
         class="
         nav-link
         dropdown-toggle
-        {{ Request::path() === "inventory/$plural_name" ? 'active' : '' }}"
+        {{ Request::is("inventory/$plural_name*") ? 'active' : '' }}"
         data-toggle="dropdown"
         role="button"
         aria-haspopup="true"

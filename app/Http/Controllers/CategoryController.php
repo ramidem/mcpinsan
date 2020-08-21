@@ -27,10 +27,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created category in storage.
      */
     public function store(Request $request)
     {
@@ -46,14 +43,12 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
+     * Display the specified category.
      */
     public function show(Category $category)
     {
-        //
+        return view('categories.show')
+            ->with('category', $category);
     }
 
     /**
