@@ -1,6 +1,6 @@
 <x-dynamic>
     @include('_partials._heading', [
-        'heading' => 'Add Category'
+        'heading' => 'Add New Category'
     ])
 
     <div class="row">

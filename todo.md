@@ -7,8 +7,8 @@
 
 ## Items Views
 
-- [ ] index
-- [ ] create
+- [x] index
+- [x] create
 - [ ] show
 - [ ] edit
 
