@@ -1,35 +1,47 @@
-@extends('layouts.app')
+<x-dynamic>
+    @include('_partials._heading', [
+        'heading' => 'Edit Category'
+    ])
 
-@section('content')
     <div class="row">
-        <div class="col-12 rounded-lg border border-info p-3">
-            <h2 class="text-center">Edit Category</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 py-3 mx-auto">
+        <div class="col-md-8 mx-auto">
             <form
                 method="post"
                 action="{{ route('categories.update', $category->id) }}">
                 @csrf
                 @method('PUT')
-                <div class="form-group">
-                    <label for="name">Category Name</label>
-                    <input
-                        type="text"
-                        class="@error('name') is-invalid @enderror form-control form-control-lg"
-                        name="name"
-                        value="{{ $category->name }}"
-                        id="name">
 
-                    @error('name')
-                    <small class="text-danger">
-                        {{ $message }}
-                    </small>
-                    @enderror
+                <div class="form-group row">
+                    <label
+                        for="name"
+                        class="col-sm-3 col-form-label">
+                        Name
+                    </label>
+                    <div class="col-sm-9">
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            value="{{ $category->name }}"
+                            id="name">
+
+                        @error('name')
+                        <div class="d-block invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <div class="form-group row">
+                    <div class="col-sm-3">&nbsp;</div>
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-@endsection
+</x-dynamic>

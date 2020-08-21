@@ -52,26 +52,26 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
+     * Show the form for editing the specified category.
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit')->with('category', $category);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
-     * @return \Illuminate\Http\Response
+     * Update the specified category in storage.
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|unique:categories,name'
+        ]);
+        $category->update($validateData);
+        $category->save();
+
+        return redirect(route('categories.show', $category->id))
+            ->with('message', "Category was updated successfully");
     }
 
     /**

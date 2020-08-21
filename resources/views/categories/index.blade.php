@@ -25,7 +25,7 @@
                                 </a>
                                 <a
                                     class="px-3"
-                                    href="">
+                                    href="{{ route('categories.edit', $category->id) }}">
                                     Edit
                                 </a>
 
