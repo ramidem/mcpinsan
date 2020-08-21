@@ -18,13 +18,37 @@
                 </thead>
                 <tbody>
                     @foreach($items as $item)
-                    {{-- @foreach(range(1, 30) as $item) --}}
                         <tr>
-                            <td>MCP-13JNS1</td>
-                            <td>Asset Name here</td>
-                            <td>Available | Lent | Missing</td>
-                            <td>View | Edit | Delete</td>
+                            <td>{{ $item->code }}</td>
+                            <td>_asset_name_</td>
+                            <td>_item_status_</td>
+                            <td>
+                                <a
+                                    href="{{ route('items.show', $item->id) }}">
+                                    View
+                                </a>
+                                <a
+                                    class="px-3"
+                                    href="{{ route('items.edit', $item->id) }}">
+                                    Edit
+                                </a>
+
+                                {{-- button trigger modal --}}
+                                <button
+                                    type="button"
+                                    class="btn btn-dark btn-sm"
+                                    data-toggle="modal"
+                                    data-target="#staticBackdrop">
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
+                        {{-- modal --}}
+                        @include('_partials._delete_modal', [
+                            'singular_name' => $item->code,
+                            'plural_name' => 'items',
+                            'id' => $item->id
+                        ])
                     @endforeach
                 </tbody>
             </table>
