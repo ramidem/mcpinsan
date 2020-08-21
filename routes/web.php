@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -26,17 +28,15 @@ Route::get('/account', function () {
     return view('account.profile');
 });
 
+Route::get('/home', function() {
+    return redirect('/account');
+});
+
 // @TODO
 // Default to inventory/assets
 Route::get('/inventory', function () {
     return view('inventory.index');
 });
 
-
-Auth::routes();
-
-Route::get('/home', function() {
-    return redirect('/account');
-});
-
 Route::resource('inventory/items', 'ItemController');
+Route::resource('inventory/categories', 'CategoryController');
