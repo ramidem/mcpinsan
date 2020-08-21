@@ -11,7 +11,7 @@
     <li class="nav-item">
         <a
             class="nav-link {{ Request::is('inventory*') ? 'active' : '' }}"
-            href="/inventory">
+            href="/inventory/assets">
             Inventory
         </a>
     </li>

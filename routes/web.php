@@ -35,8 +35,9 @@ Route::get('/home', function() {
 // @TODO
 // Default to inventory/assets
 Route::get('/inventory', function () {
-    return view('inventory.index');
+    return view('assets.index');
 });
 
 Route::resource('inventory/items', 'ItemController');
 Route::resource('inventory/categories', 'CategoryController');
+Route::resource('inventory/assets', 'AssetController');
