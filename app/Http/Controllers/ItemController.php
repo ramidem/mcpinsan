@@ -52,7 +52,8 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view('items.show')
+            ->with('item', $item);
     }
 
     /**

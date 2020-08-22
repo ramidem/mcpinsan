@@ -1,18 +1,14 @@
 ## Assets Views
 
 - [ ] !! assets image upload
-- [x] index
-- [x] create
-- [x] show
-- [x] edit
-- [x] delete
 
 ## Items Views
 
 - [x] index
 - [x] create
     - [ ] move the script somewhere
-- [ ] show
+- [x] show
+    - [x] duplicate assets card
 - [ ] edit
 - [ ] delete
 
@@ -21,12 +17,38 @@
 - [x] index
 - [x] create
 - [ ] show
+    - [ ] show all assets for category
 - [x] edit
 - [ ] delete
+
+## All Views Clean up / Polishing
+
+- [ ] assets
+    - [ ] index
+        - [ ] fix badge, duplicate items.show
+    - [ ] create
+    - [ ] edit
+    - [ ] show
+        - [ ] fix delete button
+        - [ ] show related asset - same category
+
+- [ ] items
+    - [ ] index
+    - [ ] create
+    - [ ] edit
+    - [ ] show
+        - [ ] show related asset - same category
+
+- [ ] categories
+    - [ ] index
+    - [ ] create
+    - [ ] edit
+    - [ ] show
 
 ## Others
 
 - [ ] !ALERTS
+- [ ] !PAGINATION - assets, items
 - [ ] default asset image
 - [ ] clean up code
 - [ ] email support?

@@ -16,6 +16,10 @@ class Item extends Model
     	return $this->belongsTo('App\Asset');
     }
 
+    public function category(){
+    	return $this->belongsTo('App\Category');
+    }
+
     public function itemStatus()
     {
         return $this->belongsTo('App\ItemStatus');
