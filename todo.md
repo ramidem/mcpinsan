@@ -1,6 +1,6 @@
 ## Assets Views
 
-- [ ] !! assets image upload
+- [x] !! assets image upload
 
 ## Items Views
 

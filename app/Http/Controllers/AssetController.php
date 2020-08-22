@@ -6,6 +6,7 @@ use App\Asset;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use League\Flysystem\File;
 
 class AssetController extends Controller
 {
@@ -36,7 +37,12 @@ class AssetController extends Controller
             'name' => 'required|string',
             'description' => 'required',
             'category_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        if (request()->hasFile('image')) {
+            $validatedData['image'] = $request->image->store('image', 'public');
+        }
 
         $asset = new Asset($validatedData);
 
@@ -74,24 +80,15 @@ class AssetController extends Controller
             'name' => 'required|string',
             'description' => 'required',
             'category_id' => 'required',
-            'image' => 'image'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // update asset
-        $asset->update($validatedData);
-
-        // check if there's an image uploaded
-        // if there's an image, save it and get the url
-        if ($request->hasFile('image')) {
-            // store the image
-            $path = $request->file('image')->store('public/image');
-            // this will return the url of the saved image
-            $url = Storage::url($path);
-            // set the new url of image
-            $asset->image = $url;
+        if (request()->hasFile('image')) {
+            $validatedData['image'] = $request->image->store('image', 'public');
         }
 
-        // save asset
+        $asset->update($validatedData);
+
         $asset->save();
 
         return redirect( route('assets.show', $asset->id))

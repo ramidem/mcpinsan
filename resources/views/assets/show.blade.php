@@ -11,10 +11,9 @@
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img
-                            {{-- src="{{ $asset->image }}" --}}
-                             src="https://via.placeholder.com/500"
-                             class="card-img"
-                             alt="{{ $asset->name }}">
+                            src="{{ asset('/storage/'.$asset->image) }}"
+                            class="card-img"
+                            alt="{{ $asset->name }}">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -56,9 +55,9 @@
                         </div>
                         {{-- modal --}}
                         @include('_partials._delete_modal', [
-                            'singular_name' => 'asset',
+                            'singular_name' => $asset->name,
                             'plural_name' => 'assets',
-                            'id' => '1'
+                            'id' => $asset->id
                         ])
                     </div>
                 </div>

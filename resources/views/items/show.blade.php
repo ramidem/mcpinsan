@@ -11,10 +11,9 @@
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img
-                            {{-- src="{{ $item->image }}" --}}
-                                 src="https://via.placeholder.com/500"
-                                 class="card-img"
-                                 alt="{{ $item->asset->name }}">
+                            src="{{ asset('/storage/'.$item->asset->image) }}"
+                            class="card-img"
+                            alt="{{ $item->asset->name }}">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
