@@ -32,12 +32,12 @@ Route::get('/home', function() {
     return redirect('/account');
 });
 
-// @TODO
-// Default to inventory/assets
 Route::get('/inventory', function () {
-    return view('assets.index');
+    return redirect('inventory/assets');
 });
 
-Route::resource('inventory/items', 'ItemController');
-Route::resource('inventory/categories', 'CategoryController');
-Route::resource('inventory/assets', 'AssetController');
+Route::resources([
+    'inventory/items' => 'ItemController',
+    'inventory/categories' => 'CategoryController',
+    'inventory/assets' => 'AssetController'
+]);

@@ -1,6 +1,6 @@
-## Assets Views
-
-- [x] !! assets image upload
+## Items Views
+- [x] index
+    - [ ] show available items count over total items count
 
 ## Items Views
 
@@ -10,7 +10,7 @@
     - [ ] code is unique
 - [x] show
     - [x] duplicate assets card
-- [ ] edit
+- [x] edit
 - [ ] delete
 
 ## Categories Views
@@ -32,6 +32,7 @@
 - [ ] email support?
 - [ ] notifications?
 - [ ] update favicon - no bg
+- [ ] see if you can add filter on the inventory navs dropdown
 
 ## All Views Clean up / Polishing
 
