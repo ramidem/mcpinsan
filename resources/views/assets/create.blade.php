@@ -104,13 +104,4 @@
             </form>
         </div>
     </div>
-    <script>
-        function copyInput() {
-            var copyText = document.getElementById("new_code");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999)
-            document.execCommand("copy");
-            alert("Copied the code: " + copyText.value);
-        }
-    </script>
 </x-dynamic>

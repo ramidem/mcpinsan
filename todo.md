@@ -4,7 +4,7 @@
 - [x] index
 - [x] create
 - [x] show
-- [ ] edit
+- [x] edit
 - [ ] delete
 
 ## Items Views

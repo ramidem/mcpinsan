@@ -10,7 +10,7 @@ class CreateAssetsTable extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
-            $table->text('image')->nullable();
+            $table->string('image')->nullable();
             $table->string('name')->unique();
             $table->text('description');
             $table->foreignId('category_id')->constrained('categories');

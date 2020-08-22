@@ -56,26 +56,46 @@ class AssetController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Asset  $asset
-     * @return \Illuminate\Http\Response
+     * Show the form for editing the specified asset.
      */
     public function edit(Asset $asset)
     {
-        //
+        return view('assets.edit')
+            ->with('asset',$asset)
+            ->with('categories', Category::all());
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Asset  $asset
-     * @return \Illuminate\Http\Response
+     * Update the specified asset in storage.
      */
     public function update(Request $request, Asset $asset)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required',
+            'category_id' => 'required',
+            'image' => 'image'
+        ]);
+
+        // update asset
+        $asset->update($validatedData);
+
+        // check if there's an image uploaded
+        // if there's an image, save it and get the url
+        if ($request->hasFile('image')) {
+            // store the image
+            $path = $request->file('image')->store('public/image');
+            // this will return the url of the saved image
+            $url = Storage::url($path);
+            // set the new url of image
+            $asset->image = $url;
+        }
+
+        // save asset
+        $asset->save();
+
+        return redirect( route('assets.show', $asset->id))
+            ->with('message', 'asset is updated successfully.');
     }
 
     /**

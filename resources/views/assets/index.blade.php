@@ -45,9 +45,8 @@
                                 </a>
                                 <a
                                     class="px-3"
-                                    {{-- href="{{ route('assets.edit', $item->id) }}"> --}}
-                                         href="#">
-                                         Edit
+                                    href="{{ route('assets.edit', $asset->id) }}">
+                                    Edit
                                 </a>
 
                                 {{-- button trigger modal --}}

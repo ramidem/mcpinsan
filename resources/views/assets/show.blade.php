@@ -11,9 +11,10 @@
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img
-                            src="https://via.placeholder.com/500"
-                            class="card-img"
-                            alt="{{ $asset->name }}">
+                            {{-- src="{{ $asset->image }}" --}}
+                             src="https://via.placeholder.com/500"
+                             class="card-img"
+                             alt="{{ $asset->name }}">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -40,9 +41,8 @@
                         <div class="card-footer text-right sticky-bottom">
                             <a
                                 class="px-3"
-                                {{-- href="{{ route('assets.edit', $item->id) }}"> --}}
-                                     href="#">
-                                     Edit
+                                href="{{ route('assets.edit', $asset->id) }}">
+                                Edit
                             </a>
 
                             {{-- button trigger modal --}}
