@@ -3,8 +3,9 @@
 - [ ] !! assets image upload
 - [x] index
 - [x] create
-- [ ] show
+- [x] show
 - [ ] edit
+- [ ] delete
 
 ## Items Views
 
@@ -12,6 +13,7 @@
 - [x] create
 - [ ] show
 - [ ] edit
+- [ ] delete
 
 ## Categories Views
 
@@ -19,6 +21,7 @@
 - [x] create
 - [ ] show
 - [x] edit
+- [ ] delete
 
 ## Others
 

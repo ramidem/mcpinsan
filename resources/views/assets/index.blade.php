@@ -40,9 +40,8 @@
                             </div>
                             <div class="card-footer text-right sticky-bottom">
                                 <a
-                                    {{-- href="{{ route('assets.show', $item->id) }}"> --}}
-                                         href="#">
-                                         View
+                                    href="{{ route('assets.show', $asset->id) }}">
+                                    View
                                 </a>
                                 <a
                                     class="px-3"

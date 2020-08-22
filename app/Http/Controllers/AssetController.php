@@ -42,19 +42,17 @@ class AssetController extends Controller
 
         $asset->save();
 
-        return redirect( route('assets.index', $asset->id))
+        return redirect( route('assets.show', $asset->id))
             ->with('message', 'Asset is added successfully.');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Asset  $asset
-     * @return \Illuminate\Http\Response
+     * Display the specified asset.
      */
     public function show(Asset $asset)
     {
-        //
+        return view('assets.show')
+            ->with('asset', $asset);
     }
 
     /**
