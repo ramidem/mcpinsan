@@ -5,7 +5,7 @@
 - [x] create
 - [x] show
 - [x] edit
-- [ ] delete
+- [x] delete
 
 ## Items Views
 

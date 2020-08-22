@@ -60,9 +60,9 @@
                             </div>
                             {{-- modal --}}
                             @include('_partials._delete_modal', [
-                                'singular_name' => 'asset',
+                                'singular_name' => $asset->name,
                                 'plural_name' => 'assets',
-                                'id' => '1'
+                                'id' => $asset->id
                             ])
                         </div>
                     </div>

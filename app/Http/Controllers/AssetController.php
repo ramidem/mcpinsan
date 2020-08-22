@@ -99,13 +99,12 @@ class AssetController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Asset  $asset
-     * @return \Illuminate\Http\Response
+     * Remove the specified asset from storage.
      */
     public function destroy(Asset $asset)
     {
-        //
+        $asset->delete();
+        return redirect( route('assets.index'))
+            ->with('message', 'asset is deleted successfully.');
     }
 }
