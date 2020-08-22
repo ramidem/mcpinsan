@@ -6,27 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateItemsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
+            $table->foreignId('item_status_id')->default(1)->constrained('item_statuses');
+            $table->foreignId('asset_id')->constrained('assets');
             $table->timestamps();
-            // asset_id
-            // status_id
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('items');

@@ -10,7 +10,7 @@
 ## Items Views
 
 - [x] index
-- [x] create
+- [ ] create
 - [ ] show
 - [ ] edit
 - [ ] delete

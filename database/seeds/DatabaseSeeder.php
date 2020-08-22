@@ -10,6 +10,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             CategorySeeder::class,
+            AssetSeeder::class,
+            ItemStatusSeeder::class,
             ItemSeeder::class
         ]);
     }

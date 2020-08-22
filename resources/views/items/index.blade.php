@@ -20,8 +20,8 @@
                     @foreach($items as $item)
                         <tr>
                             <td>{{ $item->code }}</td>
-                            <td>_asset_name_</td>
-                            <td>_item_status_</td>
+                            <td>{{ $item->asset->name }}</td>
+                            <td>{{ $item->itemStatus->name }}</td>
                             <td>
                                 <a
                                     href="{{ route('items.show', $item->id) }}">
