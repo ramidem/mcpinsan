@@ -11,7 +11,7 @@
 - [x] show
     - [x] duplicate assets card
 - [x] edit
-- [ ] delete
+- [x] delete
 
 ## Categories Views
 
@@ -33,6 +33,7 @@
 - [ ] notifications?
 - [ ] update favicon - no bg
 - [ ] see if you can add filter on the inventory navs dropdown
+- [ ] NAMED ROUTES!
 
 ## All Views Clean up / Polishing
 
