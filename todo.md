@@ -17,8 +17,8 @@
 
 - [x] index
 - [x] create
-- [ ] show
-    - [ ] show all assets for category
+- [x] show
+    - [x] show all assets for category
 - [x] edit
 - [ ] delete
 

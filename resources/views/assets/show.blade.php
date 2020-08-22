@@ -1,6 +1,6 @@
 <x-dynamic>
     @include('_partials._heading', [
-        'heading' => 'Asset'
+        'heading' => $asset->name
     ])
 
     @include('_partials._inventory_navs')

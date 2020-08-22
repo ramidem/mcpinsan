@@ -11,8 +11,13 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-    public function assets()
+    public function assetsLimited()
     {
         return $this->hasMany('App\Asset')->take(3);
+    }
+
+    public function assets()
+    {
+        return $this->hasMany('App\Asset');
     }
 }

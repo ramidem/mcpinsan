@@ -21,7 +21,7 @@
                     </small>
                 </div>
                 <div class="card-group mt-3">
-                    @foreach($category->assets as $asset)
+                    @foreach($category->assetsLimited as $asset)
                         <div class="card mx-sm-0" style="max-width:269px">
                             <img
                                 src="{{ asset('/storage/'.$asset->image) }}"
