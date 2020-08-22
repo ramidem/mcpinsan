@@ -1,72 +1,43 @@
 <x-dynamic>
     @include('_partials._heading', [
-        'heading' => 'Add New Item'
+        'heading' => 'Add New Asset'
     ])
 
     <div class="row">
         <div class="col-md-8 mx-auto">
             <form
                 method="post"
-                action="{{ route('items.store') }}">
+                action="{{ route('assets.store') }}"
+                enctype="multipart/form-data">
                 @csrf
-                @php
-                    $code_suggestion = strtoupper(Str::random(5))
-                @endphp
 
                 <div class="form-group row">
                     <label
-                        for="code"
+                        for="image"
                         class="col-sm-3 col-form-label">
-                        Suggestion
+                        Image
                     </label>
                     <div class="col-sm-9">
-                        <div class="input-group mb-3">
-                            <input
-                                type="text"
-                                id="new_code"
-                                class="form-control"
-                                value="{{ $code_suggestion }}"
-                                aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button
-                                    onclick="location.reload()"
-                                    class="form-control btn btn-outline-secondary" type="button" id="button-addon2">
-                                    New Code
-                                </button>
-                            </div>
-                            <div class="input-group-append">
-                                <button
-                                    onclick="copyInput()"
-                                    class="form-control btn btn-outline-secondary"
-                                    type="button"
-                                    id="button-addon2">
-                                    Copy
-                                </button>
-                            </div>
-                        </div>
+                        <input
+                        class="form-control-file"
+                        type="file"
+                        name="image"
+                        id="image">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label
-                        for="code"
+                        for="name"
                         class="col-sm-3 col-form-label">
-                        Code
+                        Name
                     </label>
                     <div class="col-sm-9">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="form-control input-group-text" id="basic-addon3">
-                                    MCP
-                                </span>
-                            </div>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="name"
-                                name="name"
-                                placeholder="{{ $code_suggestion }}"
-                                aria-describedby="basic-addon3">
-                        </div>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            name="name">
 
                         @error('name')
                         <div class="d-block invalid-feedback">
@@ -78,19 +49,47 @@
 
                 <div class="form-group row">
                     <label
-                        for="asset"
+                        for="description"
                         class="col-sm-3 col-form-label">
-                        Asset
+                        Description
+                    </label>
+                    <div class="col-sm-9">
+                        <textarea
+                            class="form-control"
+                            id="description"
+                            name="description"></textarea>
+
+                        @error('description')
+                        <div class="d-block invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label
+                        for="category"
+                        class="col-sm-3 col-form-label">
+                        Category
                     </label>
                     <div class="col-sm-9">
                         <div class="form-group">
-                            <select class="form-control">
+                            <select
+                                name="category_id"
+                                id="category_id"
+                                class="form-control">
                                 <option>-- select --</option>
-                                @foreach(range(1, 10) as $option)
-                                    <option id="_id_">_asset_name_</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        @error('category_id')
+                        <div class="d-block invalid-feedback">
+                            Please select a category.
+                        </div>
+                        @enderror
                     </div>
                 </div>
 

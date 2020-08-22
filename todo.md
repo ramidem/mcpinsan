@@ -1,7 +1,8 @@
 ## Assets Views
 
-- [ ] index
-- [ ] create
+- [ ] !! assets image upload
+- [x] index
+- [x] create
 - [ ] show
 - [ ] edit
 
@@ -18,3 +19,11 @@
 - [x] create
 - [ ] show
 - [x] edit
+
+## Others
+
+- [ ] !ALERTS
+- [ ] default asset image
+- [ ] clean up code
+- [ ] email support?
+- [ ] notifications?

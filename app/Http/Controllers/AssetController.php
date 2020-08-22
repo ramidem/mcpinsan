@@ -3,39 +3,47 @@
 namespace App\Http\Controllers;
 
 use App\Asset;
+use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AssetController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Display a listing of the assets.
      */
     public function index()
     {
-        return view('assets.index');
+        return view('assets.index')
+            ->with('assets', Asset::latest()->get()->sortBy('name'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Show the form for creating a new asset.
      */
     public function create()
     {
-        //
+        return view('assets.create')
+            ->with('categories', Category::all()->sortBy('name'));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Store a newly created asset in storage.
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required',
+            'category_id' => 'required',
+        ]);
+
+        $asset = new Asset($validatedData);
+
+        $asset->save();
+
+        return redirect( route('assets.index', $asset->id))
+            ->with('message', 'Asset is added successfully.');
     }
 
     /**

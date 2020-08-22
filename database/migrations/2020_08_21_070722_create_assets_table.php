@@ -6,24 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAssetsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
+            $table->text('image')->nullable();
+            $table->string('name')->unique();
+            $table->text('description');
+            $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('assets');
