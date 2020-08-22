@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     protected $fillable = [
-        'name',
-        'description',
+        'code',
         'item_status_id',
         'asset_id'
     ];

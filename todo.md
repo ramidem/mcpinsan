@@ -10,7 +10,8 @@
 ## Items Views
 
 - [x] index
-- [ ] create
+- [x] create
+    - [ ] move the script somewhere
 - [ ] show
 - [ ] edit
 - [ ] delete
@@ -30,3 +31,4 @@
 - [ ] clean up code
 - [ ] email support?
 - [ ] notifications?
+- [ ] update favicon - no bg

@@ -62,32 +62,59 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                id="name"
-                                name="name"
-                                placeholder="{{ $code_suggestion }}"
+                                id="code"
+                                name="code"
                                 aria-describedby="basic-addon3">
                         </div>
 
-                        @error('name')
+                        @error('code')
                         <div class="d-block invalid-feedback">
                             {{ $message }}
                         </div>
-                    @enderror
+                        @enderror
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label
-                        for="asset"
+                        for="asset_id"
                         class="col-sm-3 col-form-label">
                         Asset
                     </label>
                     <div class="col-sm-9">
                         <div class="form-group">
-                            <select class="form-control">
+                            <select
+                                name="asset_id"
+                                id="asset_id"
+                                class="form-control">
                                 <option>-- select --</option>
-                                @foreach(range(1, 10) as $option)
-                                    <option id="_id_">_asset_name_</option>
+                                @foreach($assets as $asset)
+                                    <option
+                                        value="{{ $asset->id }}">
+                                        {{ $asset->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label
+                        for="item_status_id"
+                        class="col-sm-3 col-form-label">
+                        Status
+                    </label>
+                    <div class="col-sm-9">
+                        <div class="form-group">
+                            <select
+                                name="item_status_id"
+                                class="form-control">
+                                @foreach($statuses as $status)
+                                    <option
+                                        value="{{ $status->id }}">
+                                        {{ $status->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -111,7 +138,6 @@
             copyText.select();
             copyText.setSelectionRange(0, 99999)
             document.execCommand("copy");
-            alert("Copied the code: " + copyText.value);
         }
     </script>
 </x-dynamic>

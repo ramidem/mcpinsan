@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Asset;
 use App\Item;
+use App\ItemStatus;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -21,7 +23,9 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('items.create');
+        return view('items.create')
+            ->with('assets', Asset::all())
+            ->with('statuses', ItemStatus::all());
     }
 
     /**
@@ -29,17 +33,18 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        // @TODO
-        // code generator
-        $validateData = $request->validate([
-            'code' => 'required|unique:items,name',
+        $validatedData = $request->validate([
+            'code' => 'required|string|max:5',
+            'asset_id' => 'required',
+            'item_status_id' => 'required',
         ]);
 
-        $item = new Item($validateData);
+        $item = new Item($validatedData);
+        $item->code = "MCP-".strtoupper($validatedData['code']);
         $item->save();
 
-        return redirect(route('items.index'))
-            ->with('message', "Added successfully!");
+        return redirect( route('items.index', $item->id))
+            ->with('message', 'Item is added successfully.');
     }
 
     /**
