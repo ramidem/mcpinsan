@@ -61,7 +61,10 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        return view('items.edit')
+            ->with('item',$item)
+            ->with('assets', Asset::all())
+            ->with('statuses', ItemStatus::all());
     }
 
     /**
@@ -69,7 +72,18 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        $validatedData = $request->validate([
+            'code' => 'required|string|max:5',
+            'asset_id' => 'required',
+            'item_status_id' => 'required',
+        ]);
+
+        $item->update($validatedData);
+        $item->code = "MCP-".strtoupper($validatedData['code']);
+        $item->save();
+
+        return redirect( route('items.show', $item->id))
+            ->with('message', 'Item is updated successfully.');
     }
 
     /**

@@ -30,6 +30,10 @@
                                 {{ ucwords($item->asset->name) }}
                             </h5>
 
+                            <p class="card-text badge badge-success">
+                                {{ ucwords($item->itemStatus->name) }}
+                            </p>
+
                             <p class="card-text">
                                 {{ $item->asset->description }}
                             </p>

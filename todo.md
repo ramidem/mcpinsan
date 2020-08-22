@@ -7,6 +7,7 @@
 - [x] index
 - [x] create
     - [ ] move the script somewhere
+    - [ ] code is unique
 - [x] show
     - [x] duplicate assets card
 - [ ] edit
@@ -20,6 +21,17 @@
     - [ ] show all assets for category
 - [x] edit
 - [ ] delete
+
+## Others
+
+- [ ] !ALERTS
+- [ ] !PAGINATION - assets, items
+- [ ] default asset image
+- [ ] item status colors
+- [ ] clean up code
+- [ ] email support?
+- [ ] notifications?
+- [ ] update favicon - no bg
 
 ## All Views Clean up / Polishing
 
@@ -45,12 +57,19 @@
     - [ ] edit
     - [ ] show
 
-## Others
+- [ ] Controllers
+    - [ ] assets
+    - [ ] items
+    - [ ] categories
 
-- [ ] !ALERTS
-- [ ] !PAGINATION - assets, items
-- [ ] default asset image
-- [ ] clean up code
-- [ ] email support?
-- [ ] notifications?
-- [ ] update favicon - no bg
+- [ ] factories
+    - [ ] assets
+    - [ ] items
+    - [ ] categories
+
+- [ ] seeders
+    - [ ] assets
+    - [ ] items
+    - [ ] categories
+
+
