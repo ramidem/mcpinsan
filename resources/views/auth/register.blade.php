@@ -128,10 +128,4 @@
             </div>
         </div>
     </div>
-    <!-- End Content -->
-    {{-- <div class="content d-none d-md-block container mt-5 pb-5"> --}}
-        {{--     <div class="row spacer"> --}}
-            {{--         &nbsp; --}}
-            {{--     </div> --}}
-        {{-- </div> --}}
 </x-app>

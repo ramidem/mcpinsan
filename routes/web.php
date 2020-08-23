@@ -24,12 +24,8 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/account', function () {
-    return view('account.show');
-});
-
 Route::get('/home', function() {
-    return redirect('/account');
+    return redirect(route('account.show', auth()->user()->username));
 });
 
 Route::get('/inventory', function () {
@@ -39,5 +35,6 @@ Route::get('/inventory', function () {
 Route::resources([
     'inventory/items' => 'ItemController',
     'inventory/categories' => 'CategoryController',
-    'inventory/assets' => 'AssetController'
+    'inventory/assets' => 'AssetController',
+    'account' => 'AccountController'
 ]);

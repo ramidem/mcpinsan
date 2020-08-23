@@ -3,7 +3,7 @@
 <ul class="nav nav-pills flex-column">
     <li class="nav-item">
         <a
-            class="nav-link {{ Request::is('account') ? 'active' : '' }}"
+            class="nav-link {{ Request::is('account*') ? 'active' : '' }}"
             href="/account">
             Account
         </a>

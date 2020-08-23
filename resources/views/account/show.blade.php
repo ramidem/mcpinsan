@@ -10,18 +10,20 @@
         <div class="col-9">
             <div class="card border-0">
                 <div class="card-body">
-                    <h5 class="card-title">Member Name</h5>
+                    <h5 class="card-title">{{ $user->name }}</h5>
                     <p class="card-text">
-                        <strong>
+                        <small class="text-uppercase">
                             About:
-                        </strong>
+                        </small>
+                        <br/>
                         Member Bio This card has supporting text below as a natural lead-in to additional content.
                     </p>
                     <p class="card-text">
-                        <strong>
+                        <small class="text-uppercase">
                             Member Since:
-                        </strong>
-                        January 10, 2020
+                        </small>
+                        <br/>
+                        {{ date("F Y", strtotime($user->created_at)) }}
                     </p>
                     <p class="card-text">
                         <small class="text-muted">

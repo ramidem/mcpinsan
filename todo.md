@@ -1,7 +1,11 @@
+## ROUTING
+- [ ] account
+- [ ] inventory
+
 ## Account
 - [ ] show
     - [x] register username
-    - [ ] layout
+    - [x] layout
         - [ ] account details
         - [ ] transactions
 - [ ] edit
