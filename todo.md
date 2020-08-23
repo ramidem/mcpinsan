@@ -1,3 +1,16 @@
+## Account
+- [ ] show
+    - [x] register username
+    - [ ] layout
+        - [ ] account details
+        - [ ] transactions
+- [ ] edit
+- [ ] delete
+
+## Assets Views
+- [x] index
+    - [ ] copy profile layout
+
 ## Items Views
 - [x] index
     - [ ] show available items count over total items count
@@ -16,6 +29,7 @@
 ## Categories Views
 
 - [x] index
+    - [ ] copy pushcart index layout
 - [x] create
 - [x] show
     - [x] show all assets for category

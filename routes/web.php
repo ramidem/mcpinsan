@@ -25,7 +25,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::get('/account', function () {
-    return view('account.profile');
+    return view('account.show');
 });
 
 Route::get('/home', function() {

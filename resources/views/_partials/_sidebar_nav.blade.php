@@ -5,7 +5,7 @@
         <a
             class="nav-link {{ Request::is('account') ? 'active' : '' }}"
             href="/account">
-            Profile
+            Account
         </a>
     </li>
     <li class="nav-item">

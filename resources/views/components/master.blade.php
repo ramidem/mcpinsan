@@ -33,7 +33,9 @@
     </head>
     <body>
         <div id="app">
+
             <div class="wrapper">
+                @include('_partials.navbar')
                 @include('_partials._navs')
 
                 <!-- Start Content -->

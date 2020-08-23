@@ -9,6 +9,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'username' => 'superuser',
             'name' => 'admin',
             'email' => 'admin@mcpinsan.com',
             'password' => Hash::make('11111111'),
@@ -16,6 +17,7 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'username' => 'ninetails',
             'name' => 'Naruto Uzumaki',
             'email' => 'ninetails@mcpinsan.com',
             'password' => Hash::make('11111111'),
