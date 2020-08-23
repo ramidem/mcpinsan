@@ -11,6 +11,13 @@
 - [ ] edit
 - [ ] delete
 
+## Requests Views
+- [x] create requests status table
+- [ ] index
+- [ ] show
+- [ ] edit
+- [ ] delete
+
 ## Assets Views
 - [x] index
     - [ ] copy profile layout
@@ -21,23 +28,14 @@
 
 ## Items Views
 
-- [x] index
 - [x] create
     - [ ] move the script somewhere
     - [ ] code is unique
-- [x] show
-    - [x] duplicate assets card
-- [x] edit
-- [x] delete
 
 ## Categories Views
 
 - [x] index
     - [ ] copy pushcart index layout
-- [x] create
-- [x] show
-    - [x] show all assets for category
-- [x] edit
 - [ ] delete
 
 ## Others

@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             AssetSeeder::class,
             ItemStatusSeeder::class,
-            ItemSeeder::class
+            ItemSeeder::class,
+            RequestStatusSeeder::class
         ]);
     }
 }
