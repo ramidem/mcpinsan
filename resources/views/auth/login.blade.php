@@ -92,7 +92,7 @@
 
                         <small>
                             Not yet a member?
-                            <a href="#">Register Here</a>
+                            <a href="{{ route('register') }}">Register Here</a>
                         </small>
                     </div>
                 </div>

@@ -35,7 +35,10 @@
         <div id="app">
 
             <div class="wrapper">
-                @include('_partials.navbar')
+                @if (Auth::check())
+                    @include('_partials.navbar')
+                @endif
+
                 @include('_partials._navs')
 
                 <!-- Start Content -->

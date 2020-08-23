@@ -36,5 +36,6 @@ Route::resources([
     'inventory/items' => 'ItemController',
     'inventory/categories' => 'CategoryController',
     'inventory/assets' => 'AssetController',
+    'basket' => 'BasketController',
     'account' => 'AccountController'
 ]);

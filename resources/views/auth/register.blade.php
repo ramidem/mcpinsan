@@ -107,21 +107,20 @@
                                 <input
                                     id="password-confirm"
                                     type="password"
-                                    class="form-control"
+                                    class="form-control form-control-lg"
                                     name="password_confirmation"
-                                    {{-- required --}}
                                     autocomplete="new-password">
                             </div>
 
                             <button
                                 type="submit"
-                                class="btn btn-dark btn-block btn-lg mb-3">
+                                class="btn btn-dark btn-block btn-lg mb-3 mt-4">
                                 {{ __('Register') }}
                             </button>
                         </form>
                         <small>
                             Already a member?
-                            <a href="#">Login Here</a>
+                            <a href="{{ route('login') }}">Login Here</a>
                         </small>
                     </div>
                 </div>
