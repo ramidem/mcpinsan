@@ -73,15 +73,17 @@
                         <tr>
                             <th>Category</th>
                             <th>Asset</th>
-                            <th>Item</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($transaction->assets as $asset)
                             <tr>
-                                <td>{{$asset->category_id}}</td>
+                                <td>
+                                    @foreach($categories as $category)
+                                        {{ $category->id === $asset->category_id ? $category->name : '' }}
+                                    @endforeach
+                                </td>
                                 <td>{{$asset->name}}</td>
-                                <td>_item_code_</td>
                             </tr>
                         @endforeach
                     </tbody>

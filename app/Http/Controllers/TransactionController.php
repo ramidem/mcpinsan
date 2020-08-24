@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Asset;
+use App\Category;
 use App\RequestStatus;
 use App\Transaction;
 use Illuminate\Http\Request;
@@ -71,9 +72,11 @@ class TransactionController extends Controller
     public function show(Transaction $transaction)
     {
         $statuses = RequestStatus::all();
+        $categories = Category::all();
         return view('transactions.show')
             ->with('transaction',$transaction)
-            ->with('statuses', $statuses);
+            ->with('statuses', $statuses)
+            ->with('categories', $categories);
     }
 
     /**
