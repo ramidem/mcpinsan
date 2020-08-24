@@ -48,39 +48,20 @@
                 <div class="card-header">
                     <ul class="nav nav-pills card-header-pills">
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Requests</a>
+                            <a class="nav-link active" href="#">Active</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active rounded-0" href="#">All</a>
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover">
-                        <thead class="thead-light">
-                            <tr>
-                                <td>Code</td>
-                                <td>Date</td>
-                                <td>Status</td>
-                                <td>Action</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach(range(1, 5) as $item)
-                                <tr>
-                                    <td>Code</td>
-                                    <td>Date</td>
-                                    <td>Action</td>
-                                    <td>
-                                        <a
-                                            href="">
-                                            View
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>

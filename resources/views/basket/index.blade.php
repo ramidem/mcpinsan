@@ -63,19 +63,19 @@
                                         <form action="{{route('basket.clear')}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                    <button
-                                        type="button"
-                                        class="btn btn-outline-danger rounded-0"
-                                        data-toggle="modal"
-                                        data-target="#clearBackdrop">
-                                        Remove
-                                    </button>
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-danger rounded-0"
+                                                data-toggle="modal"
+                                                data-target="#clearBackdrop">
+                                                Remove
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <form action="" method="post">
+                                <form action="{{ route('transactions.store') }}" method="post">
                                     @csrf
                                     <button
                                         class="btn btn-block btn-dark rounded-0">

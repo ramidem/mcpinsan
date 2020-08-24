@@ -30,6 +30,12 @@
                         Inventory
                     </a>
 
+                    <a
+                        class="dropdown-item"
+                        href="/transactions">
+                        Transactions
+                    </a>
+
                     <div class="dropdown-divider"></div>
 
                     <a
