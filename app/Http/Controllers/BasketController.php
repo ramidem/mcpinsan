@@ -93,4 +93,11 @@ class BasketController extends Controller
 
         return back();
     }
+
+    public function clear()
+    {
+        session()->forget('basket');
+
+        return back();
+    }
 }

@@ -32,6 +32,8 @@ Route::get('/inventory', function () {
     return redirect('inventory/assets');
 });
 
+Route::delete('/basket', 'BasketController@clear')->name('basket.clear');
+
 Route::resources([
     'inventory/items' => 'ItemController',
     'inventory/categories' => 'CategoryController',

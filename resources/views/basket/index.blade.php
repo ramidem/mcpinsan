@@ -57,7 +57,23 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td></td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <form action="{{route('basket.clear')}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                    <button
+                                        type="button"
+                                        class="btn btn-outline-danger rounded-0"
+                                        data-toggle="modal"
+                                        data-target="#clearBackdrop">
+                                        Remove
+                                    </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
                             <td>
                                 <form action="" method="post">
                                     @csrf
@@ -70,6 +86,42 @@
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+        </div>
+
+        <div
+            class="modal fade"
+            id="clearBackdrop"
+            data-backdrop="static"
+            data-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="clearBackdropLabel"
+            aria-hidden="true">
+
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        Are you sure you want to remove all the items from basket?
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary btn-sm"
+                            data-dismiss="modal">
+                            Cancel
+                        </button>
+                        <form
+                            class="d-inline-block"
+                            action="{{ route("basket.clear") }}"
+                            method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-dark btn-sm">
+                                Clear
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     @endif
