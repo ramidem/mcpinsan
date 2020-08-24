@@ -41,48 +41,4 @@
         </div>
 
     </div>
-
-    <div class="row mt-3">
-        <div class="col-12">
-            <div class="card text-center">
-                <div class="card-header">
-                    <ul class="nav nav-pills card-header-pills">
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Requests</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active rounded-0" href="#">All</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <thead class="thead-light">
-                            <tr>
-                                <td>Code</td>
-                                <td>Date</td>
-                                <td>Status</td>
-                                <td>Action</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach(range(1, 5) as $item)
-                                <tr>
-                                    <td>Code</td>
-                                    <td>Date</td>
-                                    <td>Action</td>
-                                    <td>
-                                        <a
-                                            href="">
-                                            View
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
 </x-dynamic>

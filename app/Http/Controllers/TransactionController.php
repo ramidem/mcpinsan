@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Asset;
+use App\RequestStatus;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,12 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('transactions.index');
+        $transactions = Transaction::all();
+        $statuses = RequestStatus::all();
+
+        return view('transactions.index')
+            ->with('transactions', $transactions)
+            ->with('statuses', $statuses);
     }
 
     /**
