@@ -114,7 +114,7 @@
 
                             <button
                                 type="submit"
-                                class="btn btn-dark btn-block btn-lg mb-3 mt-4">
+                                class="rounded-0 btn btn-dark btn-block btn-lg mb-3 mt-4">
                                 {{ __('Register') }}
                             </button>
                         </form>
