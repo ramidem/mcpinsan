@@ -17,11 +17,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- {{ dd($items) }} --}}
                     @foreach($items as $item)
                         <tr>
                             <td>{{ $item->code }}</td>
-                            <td>{{ $item->asset->name }}</td>
-                            <td>{{ $item->itemStatus->name }}</td>
+                            <td>
+                                @if($item->asset)
+                                    {{ $item->asset->name }}
+                                @else
+                                    Unassigned
+                                @endif
+                            </td>
+                            <td>{{ ucwords($item->itemStatus->name) }}</td>
                             <td>
                                 <a
                                     href="{{ route('items.show', $item->id) }}">

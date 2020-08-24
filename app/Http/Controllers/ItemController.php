@@ -25,7 +25,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', Item::class);
+        // $this->authorize('create', Item::class);
 
         return view('items.create')
             ->with('assets', Asset::all())
