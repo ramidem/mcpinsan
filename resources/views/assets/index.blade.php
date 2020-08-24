@@ -10,7 +10,7 @@
             <div class="col-4">
                 <div class="card rounded-0 p-3">
                     <img
-                        src="{{ asset('/storage/'.$asset->image) }}"
+                        src="{{ asset($asset->image) }}"
                         class="card-img-top"
                         alt="{{ $asset->name }}">
                 </div>

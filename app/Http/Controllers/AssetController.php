@@ -40,11 +40,17 @@ class AssetController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        if (request()->hasFile('image')) {
-            $validatedData['image'] = $request->image->store('image', 'public');
-        }
+        /* if (request()->hasFile('image')) { */
+        /*     $validatedData['image'] = $request->image->store('image', 'public'); */
+        /* } */
 
         $asset = new Asset($validatedData);
+
+        $path = $request->file('image');
+        $path_name = time(). "." . $path->getClientOriginalExtension();
+        $destination = 'image/';
+        $path->move($destination, $path_name);
+        $asset->image = $destination.$path_name;
 
         $asset->save();
 
@@ -83,11 +89,14 @@ class AssetController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-
         $asset->update($validatedData);
 
         if (request()->hasFile('image')) {
-            $asset['image'] = $request->image->store('image', 'public');
+            $path = $request->file('image');
+            $path_name = time(). "." . $path->getClientOriginalExtension();
+            $destination = 'image/';
+            $path->move($destination, $path_name);
+            $asset->image = $destination.$path_name;
         }
 
         $asset->save();

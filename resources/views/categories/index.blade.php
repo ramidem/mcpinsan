@@ -24,7 +24,7 @@
                     @foreach($category->assetsLimited as $asset)
                         <div class="card mx-sm-0" style="max-width:269px">
                             <img
-                                src="{{ asset('/storage/'.$asset->image) }}"
+                                src="{{ asset($asset->image) }}"
                                 class="card-img-top"
                                 alt="...">
                             <div class="card-body">
