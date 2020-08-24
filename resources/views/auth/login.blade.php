@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="rounded-0 btn btn-dark">
                                     {{ __('Login') }}
                                 </button>
 

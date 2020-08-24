@@ -152,8 +152,8 @@ img.bg-img {
                         <div class="col-12 col-md-9 mx-auto text-left">
                             <p class="px-3 mb-5">Book a room for up to 20 people for meetings or a single-person room if you value personal space.</p>
                         </div>
-                        <a href="/workspaces" class="mb-3 mb-md-0 col-8 col-md-3 btn btn-light">Workspaces</a>
-                        <a href="/register" class="mb-3 mb-md-0 ml-md-3 col-8 col-md-5 btn btn-dark">Become a Member</a>
+                        <a href="/workspaces" class="rounded-0 bttn mb-3 mb-md-0 col-8 col-md-3 btn btn-light">Workspaces</a>
+                        <a href="/register" class="rounded-0 bttn mb-3 mb-md-0 ml-md-3 col-8 col-md-5 btn btn-dark">Become a Member</a>
                     </div>
                 </div>
             </div>

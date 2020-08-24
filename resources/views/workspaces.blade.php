@@ -49,7 +49,7 @@
                             </div>
                         </li>
                     </ul>
-                    <a href="#amenities" class="btn btn-dark btn-block mt-5 mb-3">View Amenities</a>
+                    <a href="#amenities" class="rounded-0 bttn btn btn-dark btn-block mt-5 mb-3">View Amenities</a>
                 </div>
                 <!-- End Hourly -->
                 <!-- Day Pass -->

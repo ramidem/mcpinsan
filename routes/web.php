@@ -28,16 +28,32 @@ Route::get('/home', function() {
     return redirect(route('account.show', auth()->user()->username));
 });
 
-Route::get('/inventory', function () {
-    return redirect('inventory/assets');
+/* Route::get('/inventory', function () { */
+/*     return redirect('inventory/assets'); */
+/* }); */
+
+
+/* Route::resources([ */
+/*     'inventory/items' => 'ItemController', */
+/*     'inventory/categories' => 'CategoryController', */
+/*     'inventory/assets' => 'AssetController', */
+/*     'basket' => 'BasketController', */
+/*     'account' => 'AccountController', */
+/*     'transactions' => 'TransactionController', */
+/* ]); */
+
+Route::middleware('auth')->group(function () {
+    Route::resources([
+        'inventory/items' => 'ItemController',
+        'inventory/categories' => 'CategoryController',
+        'inventory/assets' => 'AssetController',
+        'basket' => 'BasketController',
+        'account' => 'AccountController',
+        'transactions' => 'TransactionController',
+    ]);
+    Route::delete('/basket', 'BasketController@clear')->name('basket.clear');
+
+    Route::get('/inventory', function () {
+        return redirect('inventory/assets');
+    });
 });
-
-Route::delete('/basket', 'BasketController@clear')->name('basket.clear');
-
-Route::resources([
-    'inventory/items' => 'ItemController',
-    'inventory/categories' => 'CategoryController',
-    'inventory/assets' => 'AssetController',
-    'basket' => 'BasketController',
-    'account' => 'AccountController'
-]);

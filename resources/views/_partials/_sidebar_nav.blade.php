@@ -15,4 +15,11 @@
             Inventory
         </a>
     </li>
+    <li class="nav-item">
+        <a
+            class="nav-link {{ Request::is('transactions*') ? 'active' : '' }}"
+            href="/transactions">
+            Transactions
+        </a>
+    </li>
 </ul>
