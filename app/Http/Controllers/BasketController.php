@@ -85,6 +85,12 @@ class BasketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        session()->forget("basket.$id");
+
+        if (count(session()->get('basket')) === 0) {
+            session()->forget('basket');
+        }
+
+        return back();
     }
 }

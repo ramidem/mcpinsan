@@ -5,7 +5,6 @@
 
     @include('_partials._inventory_navs')
 
-
     @foreach($assets as $asset)
         <div class="row mt-3">
             <div class="col-4">
@@ -58,7 +57,7 @@
 
                             <div class="col-6 text-right mt-3">
                                 @if ($asset->isAvailable($asset->id))
-                                    @if (in_array($asset->id, array_keys(session('basket'))))
+                                    @if (Session::has('basket') && in_array($asset->id, array_keys(session('basket'))))
                                         <a
                                             class="btn btn-dark btn-sm rounded-0 disabled">
                                             Already in basket
