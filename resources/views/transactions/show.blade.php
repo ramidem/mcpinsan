@@ -38,7 +38,11 @@
                                 class="input-group">
                                 @csrf
                                 @method("PUT")
-                                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                <select
+                                    class="custom-select"
+                                    id="status_id"
+                                    name="status_id"
+                                    aria-label="Example select with button addon">
                                     @foreach($statuses as $status)
                                         <option
                                             value="{{$status->id}}"
@@ -48,7 +52,7 @@
                                     @endforeach
                                 </select>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary rounded-0" type="button">Update</button>
+                                    <button class="btn btn-outline-secondary rounded-0">Update</button>
                                 </div>
                             </form>
                         </td>
@@ -57,6 +61,33 @@
 
                 </table>
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            {{-- table start --}}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Asset</th>
+                            <th>Item</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($transaction->assets as $asset)
+                            <tr>
+                                <td>{{$asset->category_id}}</td>
+                                <td>{{$asset->name}}</td>
+                                <td>_item_code_</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            {{-- table end --}}
         </div>
     </div>
 </x-dynamic>
