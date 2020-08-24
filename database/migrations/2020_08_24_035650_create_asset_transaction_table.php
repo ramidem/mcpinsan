@@ -16,7 +16,7 @@ class CreateAssetTransactionTable extends Migration
         Schema::create('asset_transaction', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_id')->constrained('transactions');
-            $table->foreignId('assets_id')->constrained('assets');
+            $table->foreignId('asset_id')->constrained('assets');
             $table->timestamps();
         });
     }

@@ -39,15 +39,19 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $transaction = new Transaction;
-        // transaction_code
-
         $transaction->transaction_code = strtoupper(Str::random(10));
-        // user_id
         $transaction->user_id = Auth::user()->id;
-
-        // save to database
+        $assets = Asset::find(array_keys(session('basket')));
         $transaction->save();
 
+        foreach ($assets as $asset) {
+                $transaction->assets()->attach($asset->id);
+        }
+
+        $transaction->save();
+
+        // clear cart
+        session()->forget('basket');
 
         return "Stored!";
     }
