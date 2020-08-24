@@ -32,7 +32,7 @@
                                 {{ ucwords($transaction->requestStatus->name) }}
                             </td>
                             <td class="text-center">
-                                <a href="#">
+                                <a href="{{ route('transactions.show', $transaction->id) }}">
                                     view
                                 </a>
                             </td>

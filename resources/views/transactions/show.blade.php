@@ -1,68 +1,61 @@
 <x-dynamic>
     @include('_partials._heading', [
-        'heading' => 'Account Information'
+        'heading' => 'Transaction Code'
     ])
-
-    {{-- @include('_partials._inventory_navs') --}}
-
-    <div class="row mt-3">
-
-        <div class="col-9">
-            <div class="card border-0">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $user->name }}</h5>
-                    <p class="card-text">
-                        <small class="text-uppercase">
-                            About:
-                        </small>
-                        <br/>
-                        Member Bio This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <p class="card-text">
-                        <small class="text-uppercase">
-                            Member Since:
-                        </small>
-                        <br/>
-                        {{ date("F Y", strtotime($user->created_at)) }}
-                    </p>
-                    <p class="card-text">
-                        <small class="text-muted">
-                            Last updated 3 mins ago
-                        </small>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3">
-            <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-            </div>
-        </div>
-
-    </div>
 
     <div class="row mt-3">
         <div class="col-12">
-            <div class="card text-center">
-                <div class="card-header">
-                    <ul class="nav nav-pills card-header-pills">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    {{-- transacation code --}}
+                    <tr>
+                        <td>Transaction Code</td>
+                        <td>{{$transaction->transaction_code}}</td>
+                    </tr>
+                    {{-- transaction code end --}}
+
+                    {{-- Customer name start --}}
+                    <tr>
+                        <td>Customer</td>
+                        <td>{{ $transaction->user->name }}</td>
+                    </tr>
+                    {{-- Customer name end --}}
+
+                    {{-- Date start --}}
+                    <tr>
+                        <td>Date</td>
+                        <td>{{ date("M d, Y", strtotime($transaction->created_at)) }}</td>
+                    </tr>
+                    {{-- Date end --}}
+
+                    {{-- Status start --}}
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            <form
+                                action="{{ route('transactions.update', $transaction->id) }}"
+                                method="post"
+                                class="input-group">
+                                @csrf
+                                @method("PUT")
+                                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                    @foreach($statuses as $status)
+                                        <option
+                                            value="{{$status->id}}"
+                                            {{ $status->id === $transaction->requestStatus->id ? 'selected' : '' }}>
+                                            {{ ucwords($status->name) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary rounded-0" type="button">Update</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    {{-- Status end --}}
+
+                </table>
             </div>
         </div>
     </div>

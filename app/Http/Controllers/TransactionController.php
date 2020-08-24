@@ -70,7 +70,10 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        return $transaction;
+        $statuses = RequestStatus::all();
+        return view('transactions.show')
+            ->with('transaction',$transaction)
+            ->with('statuses', $statuses);
     }
 
     /**
