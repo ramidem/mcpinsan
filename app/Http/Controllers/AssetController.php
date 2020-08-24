@@ -83,11 +83,12 @@ class AssetController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        if (request()->hasFile('image')) {
-            $validatedData['image'] = $request->image->store('image', 'public');
-        }
 
         $asset->update($validatedData);
+
+        if (request()->hasFile('image')) {
+            $asset['image'] = $request->image->store('image', 'public');
+        }
 
         $asset->save();
 
