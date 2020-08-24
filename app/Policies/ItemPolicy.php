@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Item;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -29,6 +30,16 @@ class ItemPolicy
      * Determine whether the user can delete the model.
      */
     public function delete(User $user)
+    {
+        return $user->role_id === 1;
+    }
+
+    public function viewAny(User $user)
+    {
+        return $user->role_id === 1;
+    }
+
+    public function view(User $user)
     {
         return $user->role_id === 1;
     }

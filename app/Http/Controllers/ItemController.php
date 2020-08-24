@@ -14,6 +14,8 @@ class ItemController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Item::class);
+
         return view('items.index')
             ->with('items', Item::all());
     }
@@ -56,6 +58,8 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
+        $this->authorize('view', Item::class);
+
         return view('items.show')
             ->with('item', $item);
     }
