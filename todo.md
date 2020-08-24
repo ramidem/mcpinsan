@@ -1,6 +1,16 @@
+# MGA PAGKUKULANG
+
+- alerts
+- user permission
+- account/user information
+- image upload
+- transactions - assets
+- update transaction status
+- Add to basker button, issue if there is no item for asset
+
 ## ROUTING
-- [ ] account
-- [ ] inventory
+- [x] account
+- [x] inventory
 
 ## Account
 - [ ] show
