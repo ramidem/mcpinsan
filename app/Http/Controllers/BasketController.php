@@ -74,7 +74,7 @@ class BasketController extends Controller
     {
         $request->session()->put("basket.$id");
 
-        return redirect( route('basket.index'));
+        return back();
     }
 
     /**

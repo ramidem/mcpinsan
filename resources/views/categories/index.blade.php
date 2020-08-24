@@ -11,12 +11,12 @@
                 <div class="d-flex justify-content-between align-items-end">
                     <h3 class="mt-4">
                         <a href="{{ route('categories.show', $category->id) }}">
-                        {{ ucwords($category->name) }}
+                            {{ ucwords($category->name) }}
                         </a>
                     </h3>
                     <small class="pb-2">
                         <a href="{{ route('categories.show', $category->id) }}">
-                        more
+                            more
                         </a>
                     </small>
                 </div>
@@ -25,34 +25,63 @@
                         <div class="card mx-sm-0" style="max-width:269px">
                             <img
                                 src="{{ asset($asset->image) }}"
-                                class="card-img-top"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="{{ route('assets.show', $asset->id) }}">
-                                    {{ $asset->name }}
-                                    </a>
-                                </h5>
-                                <p class="card-text">
-                                    _available_/_total_
-                                </p>
-                            </div>
-                            <div class="card-footer text-right">
-                                {{-- button trigger modal --}}
-                                <button
-                                    type="button"
-                                    class="btn btn-dark btn-sm btn-block"
-                                    data-toggle="modal"
-                                    data-target="#staticBackdrop">
-                                    Delete | Borrow/Reserve btn instead?
-                                </button>
-                            </div>
-                            {{-- modal --}}
-                            @include('_partials._delete_modal', [
-                                'singular_name' => 'asset',
-                                'plural_name' => 'assets',
-                                'id' => '1'
-                            ])
+                                class="card-img-top p-3"
+                                alt="{{ $asset->name }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ route('assets.show', $asset->id) }}">
+                                            {{ $asset->name }}
+                                        </a>
+                                    </h5>
+                                    <p class="card-text">
+                                        {{ $asset->description }}
+                                    </p>
+                                </div>
+                                <div class="card-footer text-right">
+                                    @cannot('isAdmin')
+                                        @if ($asset->isAvailable($asset->id))
+                                            @if (Session::has('basket') && in_array($asset->id, array_keys(session('basket'))))
+                                                <a
+                                                    class="btn btn-dark btn-block rounded-0 disabled">
+                                                    Already in basket
+                                                </a>
+                                            @else
+                                                <form
+                                                    action="{{ route('basket.update', $asset->id) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button
+                                                        class="btn btn-dark btn-block rounded-0">
+                                                        Add to basket
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        @else
+                                            <a
+                                                class="btn btn-dark btn-block rounded-0 disabled">
+                                                Add to basket
+                                            </a>
+                                        @endif
+                                    @endcan
+
+                                    @can('isAdmin')
+                                        {{-- button trigger modal --}}
+                                        <button
+                                            type="button"
+                                            class="btn btn-dark btn-block rounded-0"
+                                            data-toggle="modal"
+                                            data-target="#staticBackdrop">
+                                            Delete
+                                        </button>
+                                        {{-- modal --}}
+                                    @endcan
+                                </div>
+                                @include('_partials._delete_modal', [
+                                    'singular_name' => $asset->name,
+                                    'plural_name' => 'assets',
+                                    'id' => $asset->id
+                                ])
                         </div>
                     @endforeach
                 </div>
