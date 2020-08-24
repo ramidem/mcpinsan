@@ -96,7 +96,9 @@ class TransactionController extends Controller
      */
     public function update(Request $request, Transaction $transaction)
     {
-        //
+        $transaction->request_status_id = $request->status_id;
+        $transaction->save();
+        return back();
     }
 
     /**
