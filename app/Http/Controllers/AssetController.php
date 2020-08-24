@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Asset;
 use App\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use League\Flysystem\File;
+/* use Illuminate\Support\Facades\Storage; */
+/* use League\Flysystem\File; */
 
 class AssetController extends Controller
 {
@@ -24,6 +24,8 @@ class AssetController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Asset::class);
+
         return view('assets.create')
             ->with('categories', Category::all()->sortBy('name'));
     }
@@ -33,16 +35,14 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Asset::class);
+
         $validatedData = $request->validate([
             'name' => 'required|string',
             'description' => 'required',
             'category_id' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-        /* if (request()->hasFile('image')) { */
-        /*     $validatedData['image'] = $request->image->store('image', 'public'); */
-        /* } */
 
         $asset = new Asset($validatedData);
 
@@ -72,6 +72,8 @@ class AssetController extends Controller
      */
     public function edit(Asset $asset)
     {
+        $this->authorize('update', Asset::class);
+
         return view('assets.edit')
             ->with('asset',$asset)
             ->with('categories', Category::all());
@@ -82,6 +84,8 @@ class AssetController extends Controller
      */
     public function update(Request $request, Asset $asset)
     {
+        $this->authorize('update', Asset::class);
+
         $validatedData = $request->validate([
             'name' => 'required|string',
             'description' => 'required',
@@ -110,6 +114,8 @@ class AssetController extends Controller
      */
     public function destroy(Asset $asset)
     {
+        $this->authorize('update', Asset::class);
+
         $asset->delete();
         return redirect( route('assets.index'))
             ->with('message', 'asset is deleted successfully.');
