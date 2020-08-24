@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('categories.index')
-            ->with('categories', Category::all() ->sortBy('name'));
+            ->with('categories', Category::all()->sortBy('name'));
     }
 
     /**
@@ -23,6 +23,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Category::class);
+
         return view('categories.create');
     }
 
@@ -31,6 +33,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Category::class);
+
         $validateData = $request->validate([
             'name' => 'required|unique:categories,name',
         ]);
@@ -56,6 +60,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        $this->authorize('update', Category::class);
+
         return view('categories.edit')->with('category', $category);
     }
 
@@ -64,6 +70,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $this->authorize('update', Category::class);
+
         $validateData = $request->validate([
             'name' => 'required|unique:categories,name'
         ]);
@@ -79,6 +87,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        $this->authorize('delete', Category::class);
+
         $category->delete();
         return redirect(route('categories.index'))
             ->with('message', "Deleted {$category->name} successfully")
