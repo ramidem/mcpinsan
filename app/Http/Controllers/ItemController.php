@@ -23,6 +23,8 @@ class ItemController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Item::class);
+
         return view('items.create')
             ->with('assets', Asset::all())
             ->with('statuses', ItemStatus::all());
@@ -33,6 +35,8 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Item::class);
+
         $validatedData = $request->validate([
             'code' => 'required|string|max:5',
             'asset_id' => 'required',
@@ -61,6 +65,8 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
+        $this->authorize('update', Item::class);
+
         return view('items.edit')
             ->with('item',$item)
             ->with('assets', Asset::all())
@@ -72,6 +78,8 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
+        $this->authorize('update', Item::class);
+
         $validatedData = $request->validate([
             'code' => 'required|string|max:5',
             'asset_id' => 'required',
@@ -91,6 +99,8 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+        $this->authorize('delete', Item::class);
+
         $item->delete();
         return redirect( route('items.index'))
             ->with('message', 'item is deleted successfully.');
