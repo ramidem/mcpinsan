@@ -33,7 +33,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Transaction::class);
     }
 
     /**
@@ -42,7 +42,7 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         $transaction = new Transaction;
         $transaction->transaction_code = strtoupper(Str::random(10));
@@ -59,7 +59,7 @@ class TransactionController extends Controller
         // clear cart
         session()->forget('basket');
 
-        return "Stored!";
+        return redirect( route('transactions.show', $transaction->id));
     }
 
     /**
@@ -78,13 +78,10 @@ class TransactionController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
      */
-    public function edit(Transaction $transaction)
+    public function edit()
     {
-        //
+        $this->authorize('update', Transaction::class);
     }
 
     /**
@@ -96,6 +93,9 @@ class TransactionController extends Controller
      */
     public function update(Request $request, Transaction $transaction)
     {
+        // if statement if user wants to cancel
+        $this->authorize('update', Transaction::class);
+
         $transaction->request_status_id = $request->status_id;
         $transaction->save();
         return back();
@@ -107,8 +107,8 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transaction $transaction)
+    public function destroy()
     {
-        //
+        $this->authorize('delete', Transaction::class);
     }
 }
