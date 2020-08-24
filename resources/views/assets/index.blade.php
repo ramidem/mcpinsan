@@ -27,12 +27,10 @@
                         </a>
 
                         <h5 class="card-title">
+                            <a href="{{ route('assets.show', $asset->id) }}">
                             {{ ucwords($asset->name) }}
+                            </a>
                         </h5>
-
-                        <p class="card-text">
-                            {{ $asset->description }}
-                        </p>
 
                         <div class="row">
                             <div class="col-6">
@@ -56,34 +54,37 @@
                             </div>
 
                             <div class="col-6 text-right mt-3">
-                                @if ($asset->isAvailable($asset->id))
-                                    @if (Session::has('basket') && in_array($asset->id, array_keys(session('basket'))))
+                                @cannot('isAdmin')
+                                    @if ($asset->isAvailable($asset->id))
+                                        @if (Session::has('basket') && in_array($asset->id, array_keys(session('basket'))))
+                                            <a
+                                                class="btn btn-dark btn-sm rounded-0 disabled">
+                                                Already in basket
+                                            </a>
+                                        @else
+                                            <form
+                                                action="{{ route('basket.update', $asset->id) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <button
+                                                    class="btn btn-dark btn-sm rounded-0">
+                                                    Add to basket
+                                                </button>
+                                            </form>
+                                        @endif
+                                    @else
                                         <a
                                             class="btn btn-dark btn-sm rounded-0 disabled">
-                                            Already in basket
+                                            Add to basket
                                         </a>
-                                    @else
-                                        <form
-                                            action="{{ route('basket.update', $asset->id) }}"
-                                            method="post">
-                                            @csrf
-                                            @method('PUT')
-                                            <button
-                                                class="btn btn-dark btn-sm rounded-0">
-                                                Add to basket
-                                            </button>
-                                        </form>
                                     @endif
-                                @else
-                                    <a
-                                        class="btn btn-dark btn-sm rounded-0 disabled">
-                                        Add to basket
-                                    </a>
-                                @endif
+                                @endcan
                             </div>
                         </div>
                     </div>
 
+                    @can('isAdmin')
                     <div class="card-footer flex justify-content-between">
                         <small
                             class="text-muted">
@@ -117,6 +118,7 @@
                         'plural_name' => 'assets',
                         'id' => $asset->id
                     ])
+                    @endcan
                 </div>
             </div>
         </div>

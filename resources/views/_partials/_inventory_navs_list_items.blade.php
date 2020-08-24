@@ -23,7 +23,5 @@
             href="/inventory/{{ $plural_name }}/create">
             Add New {{ ucwords($singular_name) }}
         </a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
     </div>
 </li>
