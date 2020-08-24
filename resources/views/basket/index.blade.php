@@ -13,16 +13,22 @@
                             scope="col"
                             style="width: 10rem"
                             class="text-center">
-                                Action
+                            Action
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(range(1,5) as $item)
+                    @foreach($assets as $asset)
                         <tr>
-                            <td>Product Name</td>
+                            <td>{{ $asset->name }}</td>
                             <td class="text-center">
-                                Remove
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark btn-sm rounded-0"
+                                    data-toggle="modal"
+                                    data-target="#staticBackdrop">
+                                    Remove
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -31,7 +37,6 @@
                     <tr>
                         <td></td>
                         <td>
-                                {{-- <form action="{{ route('requests.store') }}" method="post"> --}}
                             <form action="" method="post">
                                 @csrf
                                 <button
@@ -45,4 +50,10 @@
             </table>
         </div>
     </div>
+    {{-- modal --}}
+    @include('_partials._delete_modal', [
+        'singular_name' => $asset->name,
+        'plural_name' => 'assets',
+        'id' => $asset->id
+    ])
 </x-dynamic>

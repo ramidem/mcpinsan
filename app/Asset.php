@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class Asset extends Model
 {
@@ -18,5 +19,10 @@ class Asset extends Model
 
     public function category(){
         return $this->belongsTo('App\Category');
+    }
+
+    public function isAvailable($asset_id)
+    {
+        return DB::table('items')->where('asset_id', '=', $asset_id)->where('item_status_id', '=', '1')->get()->count();
     }
 }

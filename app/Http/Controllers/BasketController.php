@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Asset;
 use Illuminate\Http\Request;
 
 class BasketController extends Controller
@@ -11,7 +12,13 @@ class BasketController extends Controller
      */
     public function index()
     {
-        return view('basket.index');
+        if (session()->has('basket')) {
+            $assets = Asset::find(array_keys(session('basket')));
+            return view('basket.index')
+                ->with('assets', $assets);
+        } else {
+            return view('basket.index');
+        }
     }
 
     /**
@@ -52,9 +59,8 @@ class BasketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $req, $id)
     {
-        //
     }
 
     /**
@@ -66,7 +72,9 @@ class BasketController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->session()->put("basket.$id");
+
+        return redirect( route('basket.index'));
     }
 
     /**
