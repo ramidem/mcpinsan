@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Asset;
 use App\Category;
+use App\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 
 /* use Illuminate\Support\Facades\Storage; */
@@ -40,7 +43,7 @@ class AssetController extends Controller
         $this->authorize('create', Asset::class);
 
         $validatedData = $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|unique:assets',
             'description' => 'required',
             'category_id' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -60,6 +63,13 @@ class AssetController extends Controller
         }
 
         $asset->save();
+
+        Item::create([
+
+            'code' => "MCP-".strtoupper(Str::random(5)),
+            'item_status_id' => 1,
+            'asset_id' => $asset->id
+        ]);
 
         return redirect( route('assets.show', $asset->id))
             ->with('message', 'Added asset successfully');

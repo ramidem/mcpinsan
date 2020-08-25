@@ -35,18 +35,20 @@ class ItemController extends Controller
     /**
      * Store a newly created item in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Item $item)
     {
         $this->authorize('create', Item::class);
 
+        $item->code = "MCP-".strtoupper($request->code);
+
         $validatedData = $request->validate([
-            'code' => 'required|string|max:5',
+            'code' => 'required|string|max:9|unique:items',
             'asset_id' => 'required',
             'item_status_id' => 'required',
         ]);
 
         $item = new Item($validatedData);
-        $item->code = "MCP-".strtoupper($validatedData['code']);
+
         $item->save();
 
         return redirect( route('items.index', $item->id))
@@ -84,14 +86,15 @@ class ItemController extends Controller
     {
         $this->authorize('update', Item::class);
 
+        $item->code = "MCP-".strtoupper($request->code);
+
         $validatedData = $request->validate([
-            'code' => 'required|string|max:5',
+            'code' => 'required|string|max:5|unique:items',
             'asset_id' => 'required',
             'item_status_id' => 'required',
         ]);
 
         $item->update($validatedData);
-        $item->code = "MCP-".strtoupper($validatedData['code']);
         $item->save();
 
         return redirect( route('items.show', $item->id))
