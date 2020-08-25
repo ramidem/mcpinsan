@@ -60,7 +60,8 @@ class TransactionController extends Controller
         // clear cart
         session()->forget('basket');
 
-        return redirect( route('transactions.show', $transaction->id));
+        return redirect( route('transactions.show', $transaction->id))
+            ->with('message', 'Successfully checked out');
     }
 
     /**

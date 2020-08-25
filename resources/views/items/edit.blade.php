@@ -92,7 +92,9 @@
                                 <option>-- select --</option>
                                 @foreach($assets as $asset)
                                     <option
+                                        @if($item->asset)
                                         {{ $asset->category_id === $item->asset->category_id ? 'selected' : '' }}
+                                        @endif
                                         value="{{ $asset->id }}">
                                         {{ $asset->name }}
                                     </option>

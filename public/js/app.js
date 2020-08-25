@@ -17224,7 +17224,7 @@ return jQuery;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.20';
+  var VERSION = '4.17.19';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -32800,7 +32800,7 @@ return jQuery;
      * // => [{ 'a': 4, 'b': 5, 'c': 6 }]
      *
      * // Checking for several possible values
-     * _.filter(objects, _.overSome([_.matches({ 'a': 1 }), _.matches({ 'a': 4 })]));
+     * _.filter(users, _.overSome([_.matches({ 'a': 1 }), _.matches({ 'a': 4 })]));
      * // => [{ 'a': 1, 'b': 2, 'c': 3 }, { 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matches(source) {
@@ -32837,7 +32837,7 @@ return jQuery;
      * // => { 'a': 4, 'b': 5, 'c': 6 }
      *
      * // Checking for several possible values
-     * _.filter(objects, _.overSome([_.matchesProperty('a', 1), _.matchesProperty('a', 4)]));
+     * _.filter(users, _.overSome([_.matchesProperty('a', 1), _.matchesProperty('a', 4)]));
      * // => [{ 'a': 1, 'b': 2, 'c': 3 }, { 'a': 4, 'b': 5, 'c': 6 }]
      */
     function matchesProperty(path, srcValue) {
@@ -37320,7 +37320,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleNotFoundError: Module not found: Error: Can't resolve '../images/mcp-logo-dark.svg' in '/home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/resources/sass'\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/webpack/lib/Compilation.js:925:10\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/webpack/lib/NormalModuleFactory.js:401:22\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/webpack/lib/NormalModuleFactory.js:130:21\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/webpack/lib/NormalModuleFactory.js:224:22\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/neo-async/async.js:2830:7\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/neo-async/async.js:6877:13\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/webpack/lib/NormalModuleFactory.js:214:25\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/Resolver.js:213:14\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/UnsafeCachePlugin.js:44:7\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:25:1)\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:67:43\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:14:1)\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:25:1)\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/DescriptionFilePlugin.js:67:43\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:14:1)\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/Resolver.js:285:5\n    at eval (eval at create (/home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:13:1)\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/DirectoryExistsPlugin.js:27:15\n    at /home/rmdm/Dropbox/Code/Zuitt/wd0014/s01/d1/capstone2/mcpinsan/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)");
 
 /***/ }),
 

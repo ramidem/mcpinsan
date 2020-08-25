@@ -3,6 +3,12 @@
         'heading' => 'All Assets'
     ])
 
+    @if(Session::has('message'))
+            <div class="alert alert-info fixed-top w-50" role="alert">
+                {{ Session::get('message') }}
+            </div>
+    @endif
+
     @include('_partials._inventory_navs')
 
     @foreach($assets as $asset)
@@ -28,7 +34,7 @@
 
                         <h5 class="card-title">
                             <a href="{{ route('assets.show', $asset->id) }}">
-                            {{ ucwords($asset->name) }}
+                                {{ ucwords($asset->name) }}
                             </a>
                         </h5>
 
@@ -85,39 +91,39 @@
                     </div>
 
                     @can('isAdmin')
-                    <div class="card-footer flex justify-content-between">
-                        <small
-                            class="text-muted">
-                            Updated {{ $asset->updated_at->diffForHumans() }}
-                        </small>
+                        <div class="card-footer flex justify-content-between">
+                            <small
+                                class="text-muted">
+                                Updated {{ $asset->updated_at->diffForHumans() }}
+                            </small>
 
-                        <div class="d-inline-block text-right float-right">
-                            <a
-                                href="{{ route('assets.show', $asset->id) }}">
-                                View
-                            </a>
-                            <a
-                                class="px-3"
-                                href="{{ route('assets.edit', $asset->id) }}">
-                                Edit
-                            </a>
+                            <div class="d-inline-block text-right float-right">
+                                <a
+                                    href="{{ route('assets.show', $asset->id) }}">
+                                    View
+                                </a>
+                                <a
+                                    class="px-3"
+                                    href="{{ route('assets.edit', $asset->id) }}">
+                                    Edit
+                                </a>
 
-                            {{-- button trigger modal --}}
-                            <button
-                                type="button"
-                                class="btn btn-dark btn-sm rounded-0"
-                                data-toggle="modal"
-                                data-target="#staticBackdrop">
-                                Delete
-                            </button>
+                                {{-- button trigger modal --}}
+                                <button
+                                    type="button"
+                                    class="btn btn-dark btn-sm rounded-0"
+                                    data-toggle="modal"
+                                    data-target="#staticBackdrop">
+                                    Delete
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    {{-- modal --}}
-                    @include('_partials._delete_modal', [
-                        'singular_name' => $asset->name,
-                        'plural_name' => 'assets',
-                        'id' => $asset->id
-                    ])
+                        {{-- modal --}}
+                        @include('_partials._delete_modal', [
+                            'singular_name' => $asset->name,
+                            'plural_name' => 'assets',
+                            'id' => $asset->id
+                        ])
                     @endcan
                 </div>
             </div>

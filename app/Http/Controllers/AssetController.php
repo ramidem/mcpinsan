@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Asset;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
 /* use Illuminate\Support\Facades\Storage; */
 /* use League\Flysystem\File; */
 
@@ -47,15 +49,18 @@ class AssetController extends Controller
         $asset = new Asset($validatedData);
 
         $path = $request->file('image');
-        $path_name = time(). "." . $path->getClientOriginalExtension();
-        $destination = 'image/';
-        $path->move($destination, $path_name);
-        $asset->image = $destination.$path_name;
+
+        if ($path != "") {
+            $path_name = time(). "." . $path->getClientOriginalExtension();
+            $destination = 'image/';
+            $path->move($destination, $path_name);
+            $asset->image = $destination.$path_name;
+        }
 
         $asset->save();
 
         return redirect( route('assets.show', $asset->id))
-            ->with('message', 'Asset is added successfully.');
+            ->with('message', 'Added asset successfully');
     }
 
     /**

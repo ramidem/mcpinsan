@@ -3,6 +3,12 @@
         'heading' => 'Transaction Code'
     ])
 
+    @if(Session::has('message'))
+        <div class="alert alert-info fixed-top w-50" role="alert">
+            {{ Session::get('message') }}
+        </div>
+    @endif
+
     <div class="row mt-3">
         <div class="col-12">
             <div class="table-responsive">
@@ -32,29 +38,36 @@
                     <tr>
                         <td>Status</td>
                         <td>
-                            <form
-                                action="{{ route('transactions.update', $transaction->id) }}"
-                                method="post"
-                                class="input-group">
-                                @csrf
-                                @method("PUT")
-                                <select
-                                    class="custom-select"
-                                    id="status_id"
-                                    name="status_id"
-                                    aria-label="Example select with button addon">
-                                    @foreach($statuses as $status)
-                                        <option
-                                            value="{{$status->id}}"
-                                            {{ $status->id === $transaction->requestStatus->id ? 'selected' : '' }}>
+                            @foreach($statuses as $status)
+                                @if($transaction->requestStatus->id === $status->id)
+                                    {{ ucwords($status->name) }}
+                                @endif
+                            @endforeach
+                            @can('isAdmin')
+                                <form
+                                    action="{{ route('transactions.update', $transaction->id) }}"
+                                    method="post"
+                                    class="input-group">
+                                    @csrf
+                                    @method("PUT")
+                                    <select
+                                        class="custom-select"
+                                        id="status_id"
+                                        name="status_id"
+                                        aria-label="Example select with button addon">
+                                        @foreach($statuses as $status)
+                                            <option
+                                                value="{{$status->id}}"
+                                                {{ $status->id === $transaction->requestStatus->id ? 'selected' : '' }}>
                                             {{ ucwords($status->name) }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary rounded-0">Update</button>
-                                </div>
-                            </form>
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary rounded-0">Update</button>
+                                    </div>
+                                </form>
+                            @endcan
                         </td>
                     </tr>
                     {{-- Status end --}}

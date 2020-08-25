@@ -74,7 +74,8 @@ class BasketController extends Controller
     {
         $request->session()->put("basket.$id");
 
-        return back();
+        return back()
+            ->with('message', 'asset is added to basket successfully.');
     }
 
     /**
@@ -91,13 +92,15 @@ class BasketController extends Controller
             session()->forget('basket');
         }
 
-        return back();
+        return back()
+            ->with('message', 'asset is removed from basket successfully.');
     }
 
     public function clear()
     {
         session()->forget('basket');
 
-        return back();
+        return back()
+            ->with('message', 'basket is now empty');
     }
 }

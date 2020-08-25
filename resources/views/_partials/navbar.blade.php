@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand navbar-light bg-white">
     <div class="container">
         <ul class="navbar-nav ml-auto">
-            @if (Session::has('basket'))
-                <a
-                    href="{{ route('basket.index') }}"
-                    class="btn btn-outline-secondary mr-3">
-                    @include('_partials.basket-icon')
-                    <span class="badge badge-light ml-2">
-                        {{ count(session('basket')) }}
-                    </span>
-                </a>
-            @endif
+            @cannot('isAdmin')
+                @if (Session::has('basket'))
+                    <a
+                        href="{{ route('basket.index') }}"
+                        class="btn btn-outline-secondary mr-3">
+                        @include('_partials.basket-icon')
+                        <span class="badge badge-light ml-2">
+                            {{ count(session('basket')) }}
+                        </span>
+                    </a>
+                @endif
+            @endcannot
             <li class="nav-item dropdown">
 
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

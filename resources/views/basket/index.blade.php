@@ -3,6 +3,12 @@
         'heading' => 'Basket'
     ])
 
+    @if(Session::has('message'))
+            <div class="alert alert-info fixed-top w-50" role="alert">
+                {{ Session::get('message') }}
+            </div>
+    @endif
+
     {{-- {{ dd(session('basket')) }} --}}
     @if(!Session::has('basket'))
 
