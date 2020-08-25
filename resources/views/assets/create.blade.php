@@ -79,7 +79,6 @@
                                 name="category_id"
                                 id="category_id"
                                 class="form-control">
-                                <option>-- select --</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
