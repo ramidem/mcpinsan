@@ -55,6 +55,8 @@ class AssetController extends Controller
             $destination = 'image/';
             $path->move($destination, $path_name);
             $asset->image = $destination.$path_name;
+        } else {
+            $asset->image = 'https://via.placeholder.com/500';
         }
 
         $asset->save();
