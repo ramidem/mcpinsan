@@ -62,8 +62,7 @@ class ItemController extends Controller
     {
         $this->authorize('view', Item::class);
 
-        return view('items.show')
-            ->with('item', $item);
+        return redirect( route('assets.show', $item->asset_id) );
     }
 
     /**

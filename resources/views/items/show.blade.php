@@ -17,7 +17,7 @@
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <img
-                            src="{{ asset('/storage/'.$item->asset->image) }}"
+                            src="{{ asset($item->image) }}"
                             class="card-img"
                             alt="{{ $item->asset->name }}">
                     </div>
