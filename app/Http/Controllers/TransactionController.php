@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Asset;
 use App\Category;
+use App\Item;
 use App\RequestStatus;
 use App\Transaction;
 use Illuminate\Http\Request;
@@ -56,6 +57,9 @@ class TransactionController extends Controller
         }
 
         $transaction->save();
+
+        Item::first()->where('item_status_id', '=', '1')
+                     ->update(['item_status_id' => 3]);
 
         // clear cart
         session()->forget('basket');
