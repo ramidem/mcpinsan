@@ -20,6 +20,31 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @cannot('isAdmin')
+                    @foreach($transactions as $transaction)
+                        @if(auth()->user()->id === $transaction->user_id)
+                            {{ dd($transactions) }}
+                        <tr>
+                            <td class="text-left">
+                                {{ $transaction->transaction_code }}
+                            </td>
+                            <td class="text-left">
+                                {{ date("F j, Y", strtotime($transaction->created_at)) }}
+                            </td>
+                            <td class="text-left">
+                                {{ ucwords($transaction->requestStatus->name) }}
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ route('transactions.show', $transaction->id) }}">
+                                    view
+                                </a>
+                            </td>
+                        </tr>
+                        @endif
+                    @endforeach
+                    @endcannot
+
+                    @can('isAdmin')
                     @foreach($transactions as $transaction)
                         <tr>
                             <td class="text-left">
@@ -38,6 +63,7 @@
                             </td>
                         </tr>
                     @endforeach
+                    @endcan
                 </tbody>
             </table>
         </div>
