@@ -3,12 +3,6 @@
         'heading' => 'Transaction Code'
     ])
 
-    @if(Session::has('message'))
-        <div class="alert alert-info fixed-top w-50" role="alert">
-            {{ Session::get('message') }}
-        </div>
-    @endif
-
     <div class="row mt-3">
         <div class="col-12">
             <div class="table-responsive">

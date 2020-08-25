@@ -33,6 +33,18 @@
     </head>
     <body>
         <div id="app">
+            @if(Session::has('message'))
+                <div class="container fixed-top">
+                    <div class="row">
+                        <div class="col-6 mx-auto mt-1">
+                            <div class="alert alert-info" role="alert">
+                                {{ Session::get('message') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
 
             <div class="wrapper">
                 @if (Auth::check())

@@ -3,12 +3,6 @@
         'heading' => $item->code
     ])
 
-    @if(Session::has('message'))
-            <div class="alert alert-info fixed-top w-50" role="alert">
-                {{ Session::get('message') }}
-            </div>
-    @endif
-
     @include('_partials._inventory_navs')
 
     <div class="row row-cols-1 mt-3">

@@ -3,12 +3,6 @@
         'heading' => $asset->name
     ])
 
-    @if(Session::has('message'))
-            <div class="alert alert-info fixed-top w-50" role="alert">
-                {{ Session::get('message') }}
-            </div>
-    @endif
-
     @include('_partials._inventory_navs')
     <div class="row mt-3">
         <div class="col-4">
@@ -98,10 +92,6 @@
                         </small>
 
                         <div class="d-inline-block text-right float-right">
-                            <a
-                                href="{{ route('assets.show', $asset->id) }}">
-                                View
-                            </a>
                             <a
                                 class="px-3"
                                 href="{{ route('assets.edit', $asset->id) }}">

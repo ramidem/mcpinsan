@@ -10,9 +10,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 
-/* use Illuminate\Support\Facades\Storage; */
-/* use League\Flysystem\File; */
-
 class AssetController extends Controller
 {
     /**
@@ -123,7 +120,7 @@ class AssetController extends Controller
         $asset->save();
 
         return redirect( route('assets.show', $asset->id))
-            ->with('message', 'asset is updated successfully.');
+            ->with('message', 'Updated asset successfully.');
     }
 
     /**
@@ -135,6 +132,6 @@ class AssetController extends Controller
 
         $asset->delete();
         return redirect( route('assets.index'))
-            ->with('message', 'asset is deleted successfully.');
+            ->with('message', 'Deleted asset successfully.');
     }
 }

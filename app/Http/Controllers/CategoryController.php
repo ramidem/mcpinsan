@@ -43,7 +43,7 @@ class CategoryController extends Controller
         $category->save();
 
         return redirect(route('categories.index'))
-            ->with('message', "Added successfully!");
+            ->with('message', "Added category successfully");
     }
 
     /**
@@ -79,7 +79,7 @@ class CategoryController extends Controller
         $category->save();
 
         return redirect(route('categories.show', $category->id))
-            ->with('message', "Category was updated successfully");
+            ->with('message', "Updated category successfully");
     }
 
     /**
@@ -91,7 +91,6 @@ class CategoryController extends Controller
 
         $category->delete();
         return redirect(route('categories.index'))
-            ->with('message', "Deleted {$category->name} successfully")
-            ->with('alert', 'warning');
+            ->with('message', "Deleted {$category->name} successfully");
     }
 }

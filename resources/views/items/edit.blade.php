@@ -89,7 +89,6 @@
                                 name="asset_id"
                                 id="asset_id"
                                 class="form-control">
-                                <option>-- select --</option>
                                 @foreach($assets as $asset)
                                     <option
                                         @if($item->asset)

@@ -52,7 +52,7 @@ class ItemController extends Controller
         $item->save();
 
         return redirect( route('items.index', $item->id))
-            ->with('message', 'Item is added successfully.');
+            ->with('message', 'Added item successfully.');
     }
 
     /**
@@ -97,7 +97,7 @@ class ItemController extends Controller
         $item->save();
 
         return redirect( route('items.show', $item->id))
-            ->with('message', 'Item is updated successfully.');
+            ->with('message', 'Updated item successfully.');
     }
 
     /**
@@ -109,6 +109,6 @@ class ItemController extends Controller
 
         $item->delete();
         return redirect( route('items.index'))
-            ->with('message', 'item is deleted successfully.');
+            ->with('message', 'Deleted item successfully.');
     }
 }
