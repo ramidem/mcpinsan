@@ -15,8 +15,6 @@ class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -30,8 +28,6 @@ class TransactionController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -40,9 +36,6 @@ class TransactionController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store()
     {
@@ -54,12 +47,14 @@ class TransactionController extends Controller
 
         foreach ($assets as $asset) {
                 $transaction->assets()->attach($asset->id);
+                $item = Item::where('item_status_id', '=', '1')
+                    ->where('asset_id', '=', $asset->id)
+                    ->first();
+                $item->item_status_id = 3;
+                $item->save();
         }
 
         $transaction->save();
-
-        Item::first()->where('item_status_id', '=', '1')
-                     ->update(['item_status_id' => 3]);
 
         // clear cart
         session()->forget('basket');
@@ -70,9 +65,6 @@ class TransactionController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
      */
     public function show(Transaction $transaction)
     {
@@ -94,10 +86,6 @@ class TransactionController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Transaction $transaction)
     {
@@ -111,9 +99,6 @@ class TransactionController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
      */
     public function destroy()
     {

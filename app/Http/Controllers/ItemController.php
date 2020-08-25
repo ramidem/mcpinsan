@@ -88,7 +88,7 @@ class ItemController extends Controller
         $item->code = "MCP-".strtoupper($request->code);
 
         $validatedData = $request->validate([
-            'code' => 'required|string|max:5|unique:items',
+            'code' => 'required|string|max:5',
             'asset_id' => 'required',
             'item_status_id' => 'required',
         ]);

@@ -23,7 +23,6 @@
                     @cannot('isAdmin')
                     @foreach($transactions as $transaction)
                         @if(auth()->user()->id === $transaction->user_id)
-                            {{ dd($transactions) }}
                         <tr>
                             <td class="text-left">
                                 {{ $transaction->transaction_code }}
