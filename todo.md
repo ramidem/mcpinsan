@@ -1,3 +1,10 @@
+# IMPORTANT Logic
+
+- once an instance of an asset is already borrowed by the customer, he should
+    not be able to add another instance of that asset to basket
+    button will show 'Borrowed' and disabled
+
+
 # MGA PAGKUKULANG
 
 - alerts

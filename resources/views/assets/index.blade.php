@@ -62,6 +62,7 @@
                                                 Already in basket
                                             </a>
                                         @else
+                                        {{-- another if statement to show that the item is not yet returned --}}
                                             <form
                                                 action="{{ route('basket.update', $asset->id) }}"
                                                 method="post">
