@@ -69,7 +69,7 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction, User $user)
     {
-        $this->authorize('view', Transaction::class);
+        $this->authorize('view', $transaction);
 
         $statuses = RequestStatus::all();
         $categories = Category::all();
