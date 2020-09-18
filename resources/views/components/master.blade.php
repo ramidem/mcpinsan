@@ -34,7 +34,7 @@
     <body>
         <div id="app">
             @if(Session::has('message'))
-                <div class="container fixed-top">
+                <div class="container">
                     <div class="row">
                         <div class="col-6 mx-auto mt-1">
                             <div class="alert alert-info" role="alert">
