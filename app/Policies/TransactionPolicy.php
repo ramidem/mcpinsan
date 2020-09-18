@@ -35,6 +35,6 @@ class TransactionPolicy
     }
 
     public function view(User $user, Transaction $transaction) {
-        return $user->role_id === 1 || ($user->role_id === 2 && $transaction->user_id === $user->id)
+        return $user->role_id === 1 || ($user->role_id === 2 && $transaction->user_id === $user->id);
     }
 }
