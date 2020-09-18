@@ -7,6 +7,7 @@ use App\Category;
 use App\Item;
 use App\RequestStatus;
 use App\Transaction;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -66,9 +67,10 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Transaction $transaction)
+    public function show(Transaction $transaction, User $user)
     {
         $this->authorize('view', Transaction::class);
+
         $statuses = RequestStatus::all();
         $categories = Category::all();
         return view('transactions.show')
